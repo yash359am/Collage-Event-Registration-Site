@@ -1797,14 +1797,21 @@ img {
     align-items: flex-start;
   }
 
-  /* Stack hero to vertical on tablet */
+  /* Stack hero to vertical on tablet — content on top, robot below */
   .hero-inner {
     flex-direction: column;
     text-align: center;
     gap: 20px;
   }
 
+  .hero-content {
+    order: 1;
+    text-align: center;
+    max-width: 700px;
+  }
+
   .hero-robot {
+    order: 2;
     flex: 0 0 auto;
     width: 60%;
     max-width: 400px;
@@ -1812,11 +1819,6 @@ img {
     aspect-ratio: 1/1;
     min-height: 300px;
     margin: 0 auto;
-  }
-
-  .hero-content {
-    text-align: center;
-    max-width: 700px;
   }
 
   .hero-cta {
@@ -2076,13 +2078,19 @@ img {
     gap: 10px;
   }
 
-  .hero-robot {
-    width: 240px;
-    height: 280px;
+  .hero-content {
+    order: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
   }
 
-  .hero-content {
-    text-align: center;
+  .hero-robot {
+    order: 2;
+    width: 240px;
+    height: 280px;
   }
 
   .hero-cta {
@@ -2091,13 +2099,6 @@ img {
 
   .hero-stats {
     justify-content: center;
-  }
-
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
   }
 
   .hero-badge {
@@ -2191,41 +2192,7 @@ img {
   color: var(--white);
 }
 
-/* ========= Theme Toggle Button ========= */
-.theme-toggle {
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition-normal);
-  border-radius: 50%;
-}
 
-.theme-toggle:hover {
-  background: var(--glass-bg);
-  transform: rotate(15deg);
-}
-
-.theme-toggle .moon-icon {
-  display: none;
-}
-
-.theme-toggle .sun-icon {
-  display: inline-block;
-}
-
-[data-theme="light"] .theme-toggle .moon-icon {
-  display: inline-block;
-}
-
-[data-theme="light"] .theme-toggle .sun-icon {
-  display: none;
-}
 
 /* ========= Overlay for mobile menu ========= */
 .nav-overlay {
