@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register for ANVESHANE 2026 - The Annual Fest of Bahubali College of Engineering. Secure your spot now!">
+  <title>Register | ANVESHANE - BCE</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" type="image/jpeg">
+</head>
+<body>
+
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <span class="loader-text">ANVESHANE</span>
+  </div>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">
+        <img src="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" alt="BCE Logo" class="nav-logo">
+        <span class="nav-title">ANVESHANE</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="register.html" class="active">Register</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li class="nav-register"><a href="register.html" class="btn btn-primary">Register Now</a></li>
+        <li>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+            <span class="moon-icon">🌙</span>
+            <span class="sun-icon">☀️</span>
+          </button>
+        </li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Registration Section -->
+  <section class="register-section" id="registerSection">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 20px;">Join <span class="gradient-text">ANVESHANE 2026</span></h2>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.8;">Select the events you want to participate in and register using the provided links.</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="event-filters" id="regEventFilters" style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px;">
+        <button class="filter-btn active" data-filter="all">All Events</button>
+        <button class="filter-btn" data-filter="tech">Technical</button>
+        <button class="filter-btn" data-filter="cultural">Cultural</button>
+        <button class="filter-btn" data-filter="sports">Sports</button>
+        <button class="filter-btn" data-filter="workshop">Workshops</button>
+      </div>
+
+      <div class="events-grid" id="regEventsGrid">
+        <!-- Event 1 -->
+        <div class="event-card" data-category="tech">
+          <span class="card-category tech">Technical</span>
+          <div class="event-icon">⚡</div>
+          <h3>Code Sprint</h3>
+          <p>A high-intensity competitive programming contest. Solve algorithmic challenges under time pressure.</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 1</span>
+            <span>⏰ 3 Hours</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 2 -->
+        <div class="event-card" data-category="tech">
+          <span class="card-category tech">Technical</span>
+          <div class="event-icon">🤖</div>
+          <h3>Robo Wars</h3>
+          <p>Build your combat robot and battle it out in the arena. May the strongest bot win!</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 2</span>
+            <span>⏰ Full Day</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 3 -->
+        <div class="event-card" data-category="cultural">
+          <span class="card-category cultural">Cultural</span>
+          <div class="event-icon">🎤</div>
+          <h3>Battle of Bands</h3>
+          <p>Bring your band and perform on our grand stage. Rock the audience and win amazing prizes!</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 1</span>
+            <span>⏰ Evening</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 4 -->
+        <div class="event-card" data-category="workshop">
+          <span class="card-category workshop">Workshop</span>
+          <div class="event-icon">🧠</div>
+          <h3>AI/ML Workshop</h3>
+          <p>Hands-on workshop on Artificial Intelligence and Machine Learning with real-world projects.</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 1</span>
+            <span>⏰ 4 Hours</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 5 -->
+        <div class="event-card" data-category="sports">
+          <span class="card-category sports">Sports</span>
+          <div class="event-icon">🏏</div>
+          <h3>Cricket Tournament</h3>
+          <p>Inter-college T10 cricket tournament. Assemble your team and compete for glory!</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Both Days</span>
+            <span>⏰ All Day</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 6 -->
+        <div class="event-card" data-category="cultural">
+          <span class="card-category cultural">Cultural</span>
+          <div class="event-icon">💃</div>
+          <h3>Dance Showdown</h3>
+          <p>Solo and group dance competition. Show your moves and win the crowd!</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 2</span>
+            <span>⏰ Evening</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+        <!-- Event 7 -->
+        <div class="event-card" data-category="tech">
+          <span class="card-category tech">Technical</span>
+          <div class="event-icon">💡</div>
+          <h3>Technical Quiz</h3>
+          <p>Test your knowledge in technology, coding, and general awareness. Claim the title of Quiz Champion!</p>
+          <div class="event-meta" style="margin-bottom: 20px;">
+            <span>📅 Day 2</span>
+            <span>⏰ 2 Hours</span>
+          </div>
+          <a href="#" class="btn btn-outline" style="width: 100%; justify-content: center;">Add Link Here 🔗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <img src="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" alt="BCE Logo" class="footer-logo">
+            <span class="footer-name">ANVESHANE</span>
+          </div>
+          <p>The Annual Technical & Cultural Fest of Bahubali College of Engineering, Gommatanagar, Shravanabelagola 573 135, Hassan District, Karnataka.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+            <a href="#" aria-label="LinkedIn">💼</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="index.html#about">About</a>
+          <a href="events.html">Events</a>
+          <a href="register.html">Register</a>
+        </div>
+        <div class="footer-col">
+          <h4>Events</h4>
+          <a href="events.html">Technical</a>
+          <a href="events.html">Cultural</a>
+          <a href="events.html">Sports</a>
+          <a href="events.html">Workshops</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="https://bce.org.in/" target="_blank">BCE Website</a>
+          <a href="mailto:info@bce.org.in">info@bce.org.in</a>
+          <a href="tel:+918176282756">+91 8176-282756</a>
+          <a>K-CET Code: E070</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 ANVESHANE — Bahubali College of Engineering. Made with <span class="heart">♥</span> by <a href="#" target="_blank" class="student-link">Yashodhar Naik</a> and <a href="#" target="_blank" class="student-link">Sushmitha K R</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/main.js"></script>
+  <!-- Bottom Navigation (Mobile Only) -->
+  <nav class="bottom-nav">
+    <a href="index.html" class="bottom-nav-item">
+      <span class="icon">🏠</span>
+      <span class="label">Home</span>
+    </a>
+    <a href="events.html" class="bottom-nav-item">
+      <span class="icon">📅</span>
+      <span class="label">Events</span>
+    </a>
+    <a href="register.html" class="bottom-nav-item active">
+      <span class="icon">📝</span>
+      <span class="label">Register</span>
+    </a>
+    <button class="bottom-nav-item" id="themeToggleMobile" style="background:none; border:none; cursor:pointer;">
+      <span class="icon moon-icon">🌙</span>
+      <span class="icon sun-icon" style="display:none;">☀️</span>
+      <span class="label">Theme</span>
+    </button>
+  </nav>
+
+  <script src="js/register.js"></script>
+</body>
+</html>
