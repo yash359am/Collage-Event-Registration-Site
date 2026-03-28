@@ -29,15 +29,14 @@
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="events.html">Events</a></li>
-        <li><a href="register.html">Register</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li class="nav-register"><a href="register.html" class="btn btn-primary">Register Now</a></li>
+        <li class="nav-register"><a href="events.html" class="btn btn-primary">Register Now</a></li>
       </ul>
-      <div class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
 
@@ -58,12 +57,7 @@
       </div>
     </div>
     <div class="hero-inner">
-      <!-- Left: 3D Robot -->
-      <div class="hero-robot" id="heroRobot">
-        <iframe src="https://my.spline.design/genkubgreetingrobot-fuAoc0zpJ7YiST2NbX7xB8ur/" frameborder="0" width="100%" height="100%" loading="lazy" allowfullscreen></iframe>
-        
-      </div>
-      <!-- Right: Hero Content -->
+      <!-- Left: Hero Content -->
       <div class="hero-content">
         <div class="hero-badge">
           <span class="badge-dot"></span>
@@ -78,7 +72,7 @@
           Where innovation meets creativity. Join hundreds of students across the country for two days of intense competitions, workshops, performances, and unforgettable experiences.
         </p>
         <div class="hero-cta">
-          <a href="register.html" class="btn btn-primary">Register Now →</a>
+          <a href="events.html" class="btn btn-primary">Register Now →</a>
           <a href="events.html" class="btn btn-outline">Explore Events</a>
         </div>
         <div class="hero-stats">
@@ -99,6 +93,11 @@
             <p class="stat-label">Days</p>
           </div>
         </div>
+      </div>
+      <!-- Right: 3D Robot -->
+      <div class="hero-robot" id="heroRobot">
+        <iframe src="https://my.spline.design/genkubgreetingrobot-fuAoc0zpJ7YiST2NbX7xB8ur/" frameborder="0" width="100%" height="100%" loading="lazy" allowfullscreen></iframe>
+        
       </div>
     </div>
     <div class="scroll-indicator">
@@ -173,7 +172,7 @@
       
       <div class="events-grid">
         <!-- Event 1 -->
-        <div class="event-card" data-category="tech" onclick="window.location.href='events.html'">
+        <div class="event-card" data-category="tech" onclick="window.location.href='events.html#quiz-event'">
           <span class="card-category tech">Technical</span>
           <div class="event-icon">💡</div>
           <h3>Technical Quiz</h3>
@@ -182,7 +181,7 @@
             <span>📅 Day 2</span>
             <span>⏰ 2 Hours</span>
           </div>
-          <a href="events.html" class="card-link">View Details →</a>
+          <a href="events.html#quiz-event" class="card-link">View Details →</a>
         </div>
         
         <!-- Event 2 -->
@@ -224,7 +223,7 @@
       <div class="cta-box">
         <h2>Ready to be part of <span class="gradient-text">ANVESHANE 2026</span>?</h2>
         <p>Don't miss the biggest fest of the year. Register now and secure your spot for two days of innovation, competition, and celebration!</p>
-        <a href="register.html" class="btn btn-primary">Register Now →</a>
+        <a href="events.html" class="btn btn-primary">Register Now →</a>
       </div>
     </div>
   </section>
@@ -250,8 +249,7 @@
           <h4>Quick Links</h4>
           <a href="index.html">Home</a>
           <a href="#about">About</a>
-          <a href="events.html">Events</a>
-          <a href="register.html">Register</a>
+          <a href="events.html">Events & Register</a>
         </div>
         <div class="footer-col">
           <h4>Events</h4>
@@ -286,10 +284,6 @@
     <a href="events.html" class="bottom-nav-item">
       <span class="icon">📅</span>
       <span class="label">Events</span>
-    </a>
-    <a href="register.html" class="bottom-nav-item">
-      <span class="icon">📝</span>
-      <span class="label">Register</span>
     </a>
     <button class="bottom-nav-item" id="themeToggleMobile" style="background:none; border:none; cursor:pointer;">
       <span class="icon moon-icon">🌙</span>
