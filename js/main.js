@@ -34,13 +34,12 @@ function initLenis() {
 }
 
 // ========= Page Loader =========
-window.addEventListener('load', () => {
+function dismissLoader() {
   const loader = document.getElementById('pageLoader');
-  if (loader) {
+  if (loader && loader.style.display !== 'none') {
     gsap.to(loader, {
       opacity: 0,
       duration: 1,
-      delay: 0.5,
       ease: 'expo.inOut',
       onComplete: () => {
         loader.style.display = 'none';
@@ -49,12 +48,18 @@ window.addEventListener('load', () => {
         initCustomCursor();
       }
     });
-  } else {
-    initLenis();
-    initAnimations();
-    initCustomCursor();
   }
+}
+
+// Dismiss on window load
+window.addEventListener('load', () => {
+  dismissLoader();
 });
+
+// Safety Timeout (Dismiss after 3s anyway)
+setTimeout(() => {
+  dismissLoader();
+}, 3000);
 
 // ========= Navbar Scroll Effect =========
 const navbar = document.getElementById('navbar');
