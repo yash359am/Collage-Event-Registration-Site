@@ -1,53 +1,87 @@
 /* ========================================
    ANVESHANE — Modern Design & Animation System
    Powered by GSAP, ScrollTrigger & Lenis
+   Performance-Optimized Build
    ======================================== */
 
-// Register GSAP Plugins
-gsap.registerPlugin(ScrollTrigger);
+// ========= Safe Init Guard =========
+// Prevent entire page from breaking if any library fails to load
+const hasGSAP = typeof gsap !== 'undefined';
+const hasScrollTrigger = typeof ScrollTrigger !== 'undefined';
+const hasLenis = typeof Lenis !== 'undefined';
+
+if (hasGSAP && hasScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 // ========= Initialize Lenis Smooth Scroll =========
 let lenis;
 function initLenis() {
-  lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    direction: 'vertical',
-    gestureDirection: 'vertical',
-    smoothHover: true,
-    smoothTouch: true, // Enabled for mobile smoothness
-    touchMultiplier: 2,
-  });
+  if (!hasLenis) return;
+  
+  try {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smoothTouch: false, // Disable on touch — major source of mobile lag
+      touchMultiplier: 2,
+    });
 
-  function raf(time) {
-    lenis.raf(time);
+    // Single unified RAF loop (was doubled before — caused jank)
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
     requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
 
-  // Integrate Lenis with ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+    // Integrate with ScrollTrigger (lightweight sync only)
+    if (hasScrollTrigger) {
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.lagSmoothing(0);
+    }
+  } catch (e) {
+    console.warn('Lenis init failed:', e);
+  }
 }
 
-// ========= Page Loader =========
+// ========= Page Loader — Bulletproof Dismissal =========
+let loaderDismissed = false;
+
 function dismissLoader() {
+  if (loaderDismissed) return;
+  loaderDismissed = true;
+
   const loader = document.getElementById('pageLoader');
-  if (loader && loader.style.display !== 'none') {
+  if (!loader) {
+    initLenis();
+    safeInit();
+    return;
+  }
+
+  if (hasGSAP) {
     gsap.to(loader, {
       opacity: 0,
-      duration: 1,
-      ease: 'expo.inOut',
+      duration: 0.6,
+      ease: 'power2.inOut',
       onComplete: () => {
         loader.style.display = 'none';
+        loader.remove(); // Fully remove from DOM to free memory
         initLenis();
-        initAnimations();
-        initCustomCursor();
+        safeInit();
       }
     });
+  } else {
+    // Fallback if GSAP didn't load
+    loader.style.transition = 'opacity 0.5s ease';
+    loader.style.opacity = '0';
+    setTimeout(() => {
+      loader.style.display = 'none';
+      loader.remove();
+      initLenis();
+      safeInit();
+    }, 500);
   }
 }
 
@@ -56,20 +90,59 @@ window.addEventListener('load', () => {
   dismissLoader();
 });
 
-// Safety Timeout (Dismiss after 3s anyway)
-setTimeout(() => {
+// Safety net #1: DOM ready (in case load event already fired)
+if (document.readyState === 'complete') {
   dismissLoader();
-}, 3000);
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    // Give a brief moment for scripts to init
+    setTimeout(dismissLoader, 800);
+  });
+}
+
+// Safety net #2: Force dismiss after 4 seconds no matter what
+setTimeout(() => {
+  if (!loaderDismissed) {
+    console.warn('Force-dismissing loader after timeout');
+    const loader = document.getElementById('pageLoader');
+    if (loader) {
+      loader.style.opacity = '0';
+      loader.style.display = 'none';
+      loader.remove();
+    }
+    loaderDismissed = true;
+    initLenis();
+    safeInit();
+  }
+}, 4000);
+
+// ========= Safe Init Wrapper =========
+function safeInit() {
+  try { initAnimations(); } catch(e) { console.warn('Animation init error:', e); }
+  try { initCustomCursor(); } catch(e) { console.warn('Cursor init error:', e); }
+}
 
 // ========= Navbar Scroll Effect =========
 const navbar = document.getElementById('navbar');
+let lastScrollY = 0;
+let scrollTicking = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
+  lastScrollY = window.scrollY;
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      if (navbar) {
+        if (lastScrollY > 50) {
+          navbar.classList.add('scrolled');
+        } else {
+          navbar.classList.remove('scrolled');
+        }
+      }
+      scrollTicking = false;
+    });
+    scrollTicking = true;
   }
-});
+}, { passive: true });
 
 // ========= Hamburger Menu =========
 const hamburger = document.getElementById('hamburger');
@@ -100,6 +173,8 @@ function closeMenu() {
 
 // ========= Main Animation Initializer =========
 function initAnimations() {
+  if (!hasGSAP) return;
+  
   initScrollProgress();
   animateHero();
   animateAbout();
@@ -117,7 +192,7 @@ function initAnimations() {
 // ========= Scroll Progress Bar =========
 function initScrollProgress() {
   const progressBar = document.getElementById('scrollProgress');
-  if (!progressBar) return;
+  if (!progressBar || !hasScrollTrigger) return;
 
   gsap.to(progressBar, {
     width: '100%',
@@ -139,7 +214,7 @@ function splitTextCharacters(selector) {
   el.innerHTML = '';
   text.split('').forEach(char => {
     const span = document.createElement('span');
-    span.innerText = char === ' ' ? '\u00A0' : char; // Handle spaces
+    span.innerText = char === ' ' ? '\u00A0' : char;
     span.style.display = 'inline-block';
     el.appendChild(span);
   });
@@ -150,10 +225,14 @@ function animateHero() {
   const heroLines = document.querySelectorAll('.hero-title .line-inner');
   if (heroLines.length === 0) return;
 
-  // Split the main ANVESHANE title into characters for a cool reveal
-  splitTextCharacters('#anveshaneTitle');
+  // Split the ANVESHANE title into characters
+  const anvTitle = document.getElementById('anveshaneTitle');
+  // Only split if it's the hero title (not events page)
+  if (anvTitle && anvTitle.closest('.hero-title')) {
+    splitTextCharacters('#anveshaneTitle');
+  }
 
-  // --- Hero Background Entry ---
+  // Hero Background Entry
   gsap.from('.hero-bg', {
     scale: 1.2,
     opacity: 0,
@@ -161,7 +240,7 @@ function animateHero() {
     ease: 'power3.out'
   });
 
-  // --- Hero Content Entry ---
+  // Hero Content Entry
   const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
 
   tl.from('.hero-badge', {
@@ -209,7 +288,9 @@ function animateHero() {
     duration: 1
   }, '-=0.6');
 
-  // --- Scroll-triggered Cinematic Zoom & Parallax ---
+  if (!hasScrollTrigger) return;
+
+  // Scroll-triggered Parallax
   gsap.to('.hero-bg', {
     scale: 1.15,
     yPercent: 30,
@@ -223,7 +304,7 @@ function animateHero() {
     }
   });
 
-  // --- Fade Hero Content on Scroll ---
+  // Fade Hero Content on Scroll
   gsap.to('.hero-inner', {
     y: -100,
     opacity: 0,
@@ -252,9 +333,8 @@ function animateHero() {
 // ========= About Section Animations =========
 function animateAbout() {
   const aboutSection = document.querySelector('.about');
-  if (!aboutSection) return;
+  if (!aboutSection || !hasScrollTrigger) return;
 
-  // Staggered entry for content
   gsap.from('.about-content > *', {
     scrollTrigger: {
       trigger: '.about-content',
@@ -267,7 +347,6 @@ function animateAbout() {
     ease: 'power3.out'
   });
 
-  // Animate Feature Boxes
   gsap.from('.about-feature-box', {
     scrollTrigger: {
       trigger: '.about-features-grid',
@@ -280,7 +359,6 @@ function animateAbout() {
     ease: 'back.out(1.7)'
   });
 
-  // Animate Blob
   gsap.from('.experience-blob', {
     scrollTrigger: {
       trigger: '.about-visual-creative',
@@ -293,7 +371,6 @@ function animateAbout() {
     ease: 'elastic.out(1, 0.5)'
   });
 
-  // Animate Creative Cards Stack
   const cards = document.querySelectorAll('.about-card-creative');
   cards.forEach((card, i) => {
     gsap.from(card, {
@@ -311,7 +388,6 @@ function animateAbout() {
     });
   });
 
-  // Parallax Effect for the Visual Area
   gsap.to('.about-visual-creative', {
     y: -50,
     scrollTrigger: {
@@ -323,40 +399,58 @@ function animateAbout() {
   });
 }
 
-// ========= Event Cards Animations =========
+// ========= Event Cards — Lightweight Reveal =========
 function animateEventCards() {
   const cards = document.querySelectorAll('.event-card, .event-full-card');
   if (cards.length === 0) return;
 
-  cards.forEach((card) => {
-    // Initial reveal
-    gsap.from(card, {
-      scrollTrigger: {
-        trigger: card,
-        start: 'top 90%',
-        toggleActions: 'play none none reverse'
-      },
-      y: 60,
-      opacity: 0,
-      scale: 0.9,
-      duration: 0.8,
-      ease: 'power3.out'
+  // Use IntersectionObserver for a smoother reveal (less overhead than ScrollTrigger per card)
+  if ('IntersectionObserver' in window && hasGSAP) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          gsap.fromTo(card, 
+            { y: 40, opacity: 0, scale: 0.95 },
+            { 
+              y: 0, opacity: 1, scale: 1, 
+              duration: 0.6, 
+              ease: 'power3.out',
+              clearProps: 'transform' // IMPORTANT: Clear inline styles after animation so CSS hover works
+            }
+          );
+          observer.unobserve(card);
+        }
+      });
+    }, { 
+      rootMargin: '0px 0px -10% 0px',
+      threshold: 0.1
     });
 
-    // Mouse follow glow effect
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      card.style.setProperty('--mouse-x', `${x}%`);
-      card.style.setProperty('--mouse-y', `${y}%`);
+    cards.forEach(card => {
+      // Pre-set invisible state
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(40px) scale(0.95)';
+      observer.observe(card);
     });
-  });
+  }
+
+  // Mouse follow glow effect (only on desktop)
+  if (window.innerWidth > 768) {
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mouse-x', `${x}%`);
+        card.style.setProperty('--mouse-y', `${y}%`);
+      });
+    });
+  }
 }
 
 // ========= Floating Elements Animation =========
 function animateFloatingElements() {
-  // Simple infinite float for badges and icons
   const heroBadge = document.querySelector('.hero-badge');
   if (heroBadge) {
     gsap.to(heroBadge, {
@@ -380,12 +474,11 @@ function animateFloatingElements() {
   }
 }
 
-// ========= Custom Cursor =========
+// ========= Custom Cursor (Desktop Only) =========
 function initCustomCursor() {
   const cursor = document.getElementById('customCursor');
-  if (!cursor || window.innerWidth < 1025) return;
+  if (!cursor || window.innerWidth < 1025 || !hasGSAP) return;
 
-  // Add label container to cursor
   const cursorLabel = document.createElement('span');
   cursorLabel.className = 'cursor-label';
   cursor.appendChild(cursorLabel);
@@ -401,7 +494,6 @@ function initCustomCursor() {
     });
   });
 
-  // Hover states with dynamic labels
   const interactives = [
     { selector: 'a, button, .btn', label: '' },
     { selector: '.event-card, .event-full-card', label: 'VIEW' },
@@ -415,10 +507,10 @@ function initCustomCursor() {
         cursor.classList.add('active');
         if (group.label) {
           cursorLabel.innerText = group.label;
-          gsap.to(cursor, { scale: 5, backgroundColor: 'rgba(255, 215, 0, 0.9)', duration: 0.3 });
-          gsap.to(cursorLabel, { opacity: 1, scale: 0.25, duration: 0.3 });
+          gsap.to(cursor, { scale: 1.5, backgroundColor: 'rgba(255, 215, 0, 1)', duration: 0.3 });
+          gsap.to(cursorLabel, { opacity: 1, scale: 1, duration: 0.3 });
         } else {
-          gsap.to(cursor, { scale: 3, backgroundColor: 'rgba(255, 215, 0, 0.3)', duration: 0.3 });
+          gsap.to(cursor, { scale: 1.3, backgroundColor: 'rgba(255, 215, 0, 0.4)', duration: 0.3 });
         }
       });
       el.addEventListener('mouseleave', () => {
@@ -433,6 +525,9 @@ function initCustomCursor() {
 
 // ========= Magnetic Buttons =========
 function initMagneticButtons() {
+  // Skip on mobile for performance
+  if (window.innerWidth < 1025) return;
+
   document.querySelectorAll('.btn, .nav-links a, .footer-social a, .bottom-nav-item').forEach(el => {
     el.addEventListener('mousemove', (e) => {
       const rect = el.getBoundingClientRect();
@@ -440,22 +535,11 @@ function initMagneticButtons() {
       const y = e.clientY - rect.top - rect.height / 2;
       
       gsap.to(el, {
-        x: x * 0.4,
-        y: y * 0.4,
+        x: x * 0.3,
+        y: y * 0.3,
         duration: 0.4,
         ease: 'power2.out',
       });
-
-      // If it's the custom cursor, pull it towards the element too (Magnetic Cursor)
-      const cursor = document.getElementById('customCursor');
-      if (cursor && window.innerWidth >= 1025) {
-        gsap.to(cursor, {
-          x: rect.left + rect.width / 2 + x * 0.2,
-          y: rect.top + rect.height / 2 + y * 0.2,
-          scale: 3.5,
-          duration: 0.3
-        });
-      }
     });
 
     el.addEventListener('mouseleave', () => {
@@ -469,16 +553,18 @@ function initMagneticButtons() {
   });
 }
 
-// ========= Tilt Effect =========
+// ========= Tilt Effect (Desktop Only) =========
 function initTiltEffect() {
+  if (window.innerWidth < 1025) return;
+
   document.querySelectorAll('.event-card, .event-full-card, .about-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = (e.clientY - rect.top) / rect.height;
       
-      const rotateX = (y - 0.5) * -12;
-      const rotateY = (x - 0.5) * 12;
+      const rotateX = (y - 0.5) * -8;
+      const rotateY = (x - 0.5) * 8;
 
       gsap.to(card, {
         rotateX: rotateX,
@@ -503,6 +589,8 @@ function initTiltEffect() {
 // ========= Counter Animation =========
 function animateCounters() {
   const counters = document.querySelectorAll('.stat-number[data-count]');
+  if (!hasScrollTrigger) return;
+  
   counters.forEach(counter => {
     const target = parseInt(counter.getAttribute('data-count'));
     ScrollTrigger.create({
@@ -523,7 +611,7 @@ function animateCounters() {
 // ========= CTA & Footer =========
 function animateCTA() {
   const cta = document.querySelector('.cta-box');
-  if (!cta) return;
+  if (!cta || !hasScrollTrigger) return;
   gsap.from(cta, {
     scrollTrigger: {
       trigger: '.cta-section',
@@ -538,6 +626,7 @@ function animateCTA() {
 }
 
 function animateFooter() {
+  if (!hasScrollTrigger) return;
   gsap.from('.footer-grid > *', {
     scrollTrigger: {
       trigger: '.footer',
@@ -556,7 +645,6 @@ function animatePageHeader() {
   const subtitle = document.querySelector('.page-header p');
   if (!header) return;
 
-  // Cinematic fade-in for page headers without potentially breaking character splits
   gsap.fromTo(header, 
     { y: 30, opacity: 0, scale: 0.95 }, 
     { y: 0, opacity: 1, scale: 1, duration: 1.5, ease: 'expo.out' }
@@ -569,17 +657,18 @@ function animatePageHeader() {
     );
   }
 }
-// ========= Ambient Aura Motion — Advanced System =========
+
+// ========= Ambient Aura Motion — Performance Optimized =========
 function initAmbientMotion() {
   const orbs = document.querySelectorAll('.aura-orb');
   if (orbs.length === 0) return;
 
-  // 1. Constant Organic Drifting (Base layer)
+  // 1. Gentle organic drifting (base layer)
   orbs.forEach((orb, i) => {
     gsap.to(orb, {
-      x: 'random(-100, 100)',
-      y: 'random(-100, 100)',
-      duration: gsap.utils.random(15, 25),
+      x: 'random(-60, 60)',
+      y: 'random(-60, 60)',
+      duration: gsap.utils.random(18, 28),
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
@@ -587,58 +676,68 @@ function initAmbientMotion() {
     });
   });
 
-  // 2. Scroll-Triggered Parallax & Transformation
-  // Each orb moves at a different speed and direction to create depth
-  const moveSpeeds = [150, -200, 100, -150, 250];
-  const scaleSpeeds = [1.2, 0.8, 1.1, 0.9, 1.3];
+  if (!hasScrollTrigger) return;
+
+  // 2. Scroll-Triggered Parallax (reduced intensity)
+  const moveSpeeds = [100, -120, 60, -80, 140];
+  const scaleSpeeds = [1.1, 0.9, 1.05, 0.95, 1.15];
 
   orbs.forEach((orb, i) => {
     gsap.to(orb, {
-      y: moveSpeeds[i] || 100,
-      scale: scaleSpeeds[i] || 1.1,
-      opacity: gsap.utils.random(0.05, 0.25),
+      y: moveSpeeds[i] || 60,
+      scale: scaleSpeeds[i] || 1.05,
+      opacity: gsap.utils.random(0.05, 0.2),
       scrollTrigger: {
         trigger: 'body',
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 1.5,
+        scrub: 2,
       }
     });
   });
 
   // 3. Subtle Hue Shift on Scroll
   gsap.to(orbs, {
-    filter: 'blur(150px) hue-rotate(30deg)',
+    filter: 'blur(150px) hue-rotate(20deg)',
     scrollTrigger: {
       trigger: 'body',
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 2,
+      scrub: 3,
     }
   });
 
-  // 4. Advanced Mouse Parallax (Interactive Layer)
-  window.addEventListener('mousemove', (e) => {
-    const { clientX, clientY } = e;
-    const xPos = (clientX / window.innerWidth - 0.5);
-    const yPos = (clientY / window.innerHeight - 0.5);
+  // 4. Mouse Parallax — Debounced for performance (desktop only)
+  if (window.innerWidth > 768) {
+    let mouseX = 0.5, mouseY = 0.5;
+    let mouseRAF;
 
-    orbs.forEach((orb, i) => {
-      const factorX = (i + 1) * 20;
-      const factorY = (i + 1) * 15;
-      
-      gsap.to(orb, {
-        xPercent: xPos * factorX,
-        yPercent: yPos * factorY,
-        duration: 2,
-        ease: 'power2.out'
-      });
-    });
-  });
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX / window.innerWidth - 0.5;
+      mouseY = e.clientY / window.innerHeight - 0.5;
 
-  // 5. Global Parallax for the entire Aura Container
+      if (!mouseRAF) {
+        mouseRAF = requestAnimationFrame(() => {
+          orbs.forEach((orb, i) => {
+            const factorX = (i + 1) * 12;
+            const factorY = (i + 1) * 10;
+            
+            gsap.to(orb, {
+              xPercent: mouseX * factorX,
+              yPercent: mouseY * factorY,
+              duration: 2.5,
+              ease: 'power2.out'
+            });
+          });
+          mouseRAF = null;
+        });
+      }
+    }, { passive: true });
+  }
+
+  // 5. Global Parallax
   gsap.to('.ambient-aura', {
-    yPercent: 15,
+    yPercent: 10,
     ease: 'none',
     scrollTrigger: {
       trigger: 'body',
