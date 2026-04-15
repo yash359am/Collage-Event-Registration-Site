@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ========= Reveal Event Cards on Scroll =========
 function initCardScrollAnimations() {
-  const eventCards = document.querySelectorAll('.event-full-card');
+  const eventCards = document.querySelectorAll('.event-full-card, .event-category-header');
   if (eventCards.length === 0) return;
 
   const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
@@ -44,7 +44,7 @@ function initCardScrollAnimations() {
 // ========= Event Category Filters =========
 function initEventFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const eventCards = document.querySelectorAll('.event-full-card');
+  const eventCards = document.querySelectorAll('.event-full-card, .event-category-header');
 
   if (filterBtns.length === 0 || eventCards.length === 0) return;
 
@@ -83,7 +83,7 @@ function initEventFilters() {
             });
 
             // Animate visible cards in
-            const visibleCards = document.querySelectorAll('.event-full-card:not([style*="display: none"])');
+            const visibleCards = document.querySelectorAll('.event-full-card:not([style*="display: none"]), .event-category-header:not([style*="display: none"])');
             gsap.fromTo(visibleCards,
               { opacity: 0, y: 30, scale: 0.97 },
               {

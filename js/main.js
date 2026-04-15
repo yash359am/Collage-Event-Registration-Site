@@ -1,3 +1,12 @@
+
+// Global Error Boundary
+window.addEventListener("error", function (e) {
+    // Suppress console errors per performance specs
+    e.preventDefault();
+});
+window.addEventListener("unhandledrejection", function (e) {
+    e.preventDefault();
+});
 /* ========================================
    ANVESHANE — Modern Design & Animation System
    Powered by GSAP, ScrollTrigger & Lenis

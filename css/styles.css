@@ -241,23 +241,23 @@ img {
 /* Glassmorphism Utilities */
 .glass {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* backdrop-filter removed for minimalist styling */
+  /* webkit-backdrop-filter removed */
   border: 1px solid var(--glass-border);
   box-shadow: 0 8px 32px 0 var(--glass-shadow);
 }
 
 .glass-dark {
-  background: rgba(3, 8, 22, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(3, 8, 22, 0.98);
+  /* backdrop-filter removed for minimalist styling */
+  /* webkit-backdrop-filter removed */
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(13, 27, 49, 0.95);
+  /* backdrop-filter removed for minimalist styling */
+  /* webkit-backdrop-filter removed */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius);
   transition: var(--transition-normal);
@@ -404,13 +404,13 @@ img {
   z-index: 1000;
   padding: 20px 0;
   transition: all var(--transition-normal);
-  backdrop-filter: blur(0px);
+  /* backdrop-filter removed for minimalist styling */
 }
 
 .navbar.scrolled {
   padding: 10px 0;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
+  /* backdrop-filter removed for minimalist styling */
   border-bottom: 1px solid var(--glass-border);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
@@ -772,8 +772,8 @@ img {
   pointer-events: none;
   border-radius: 8px;
   background: rgba(10, 22, 40, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* backdrop-filter removed for minimalist styling */
+  /* webkit-backdrop-filter removed */
   border: 1px solid rgba(255, 215, 0, 0.25);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   font-family: var(--font-accent);
@@ -801,7 +801,7 @@ img {
   font-size: 1rem;
   font-weight: 600;
   color: var(--gold);
-  backdrop-filter: blur(12px);
+  /* backdrop-filter removed for minimalist styling */
   white-space: nowrap;
   letter-spacing: 1px;
   animation: welcomeTagFloat 3s ease-in-out infinite;
@@ -886,7 +886,7 @@ img {
   font-weight: 500;
   color: var(--gold);
   margin-bottom: 30px;
-  backdrop-filter: blur(10px);
+  /* backdrop-filter removed for minimalist styling */
   letter-spacing: 2px;
   text-transform: uppercase;
   /* Left-align along with hero-content */
@@ -1410,6 +1410,255 @@ img {
   gap: 12px;
 }
 
+/* ========= Free Registration Banner ========= */
+.free-banner-wrapper {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.free-banner {
+  position: relative;
+  padding: 28px 40px 22px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0a0f1e 0%, #111b33 50%, #0a0f1e 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  overflow: hidden;
+  animation: bannerBorderPulse 3s ease-in-out infinite;
+}
+
+/* Animated glowing border */
+.free-banner::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: linear-gradient(
+    270deg, 
+    #ffd700, #ff6b35, #ff2d95, #a855f7, #06b6d4, #22c55e, #ffd700
+  );
+  background-size: 600% 100%;
+  animation: borderRainbow 4s linear infinite;
+  z-index: -1;
+}
+
+/* Inner dark fill to show only the border glow */
+.free-banner::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #080d1a 0%, #0f1729 50%, #080d1a 100%);
+  z-index: -1;
+}
+
+@keyframes borderRainbow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 600% 50%; }
+}
+
+@keyframes bannerBorderPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.15), 0 0 60px rgba(255, 215, 0, 0.05); }
+  50% { box-shadow: 0 0 35px rgba(255, 215, 0, 0.3), 0 0 80px rgba(255, 215, 0, 0.1); }
+}
+
+/* Background glow orb */
+.free-banner-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: glowPulse 2.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes glowPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.3); opacity: 1; }
+}
+
+/* Shimmer sweep effect */
+.free-banner-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 215, 0, 0.06), 
+    rgba(255, 215, 0, 0.12), 
+    rgba(255, 215, 0, 0.06), 
+    transparent
+  );
+  transform: skewX(-20deg);
+  animation: shimmerSweep 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes shimmerSweep {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* Main text content */
+.free-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.free-banner-text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: 6px;
+  color: #e8e8e8;
+  text-transform: uppercase;
+}
+
+/* "FREE" word — blinking rainbow glow */
+.free-word {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffd700, #ffaa00, #ff6b35, #ffd700);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: freeTextGlow 1.5s ease-in-out infinite, freeTextShift 3s linear infinite;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.6));
+  position: relative;
+}
+
+@keyframes freeTextGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2)); 
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.8)) drop-shadow(0 0 40px rgba(255, 215, 0, 0.4)); 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes freeTextShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Emoji icons */
+.free-banner-icon {
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+.free-banner-icon:last-of-type {
+  animation-delay: 0.3s;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  25% { transform: translateY(-6px) scale(1.1); }
+  50% { transform: translateY(0) scale(1); }
+  75% { transform: translateY(-3px) scale(1.05); }
+}
+
+/* Sparkle stars */
+.free-banner-sparkle {
+  font-size: 1.2rem;
+  color: #ffd700;
+  animation: sparkleBlink 1.2s ease-in-out infinite;
+}
+
+.free-banner-sparkle:last-of-type {
+  animation-delay: 0.6s;
+}
+
+@keyframes sparkleBlink {
+  0%, 100% { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.3) rotate(180deg); }
+}
+
+/* Subtitle */
+.free-banner-subtitle {
+  text-align: center;
+  margin-top: 10px;
+  font-family: var(--font-accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: rgba(255, 215, 0, 0.6);
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+  animation: subtitleFade 3s ease-in-out infinite;
+}
+
+@keyframes subtitleFade {
+  0%, 100% { opacity: 0.5; letter-spacing: 3px; }
+  50% { opacity: 1; letter-spacing: 5px; }
+}
+
+/* Floating particles */
+.free-banner-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.fb-particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.fb-particle:nth-child(1) { left: 10%; top: 80%; animation-delay: 0s; animation-duration: 3.5s; }
+.fb-particle:nth-child(2) { left: 25%; top: 90%; animation-delay: 0.7s; animation-duration: 4s; }
+.fb-particle:nth-child(3) { left: 50%; top: 85%; animation-delay: 1.2s; animation-duration: 3.2s; }
+.fb-particle:nth-child(4) { left: 70%; top: 90%; animation-delay: 0.4s; animation-duration: 4.5s; }
+.fb-particle:nth-child(5) { left: 85%; top: 80%; animation-delay: 1.8s; animation-duration: 3.8s; }
+.fb-particle:nth-child(6) { left: 40%; top: 75%; animation-delay: 2.2s; animation-duration: 3s; }
+
+@keyframes particleFloat {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-60px) scale(0); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .free-banner {
+    padding: 22px 20px 18px;
+  }
+  .free-banner-content {
+    gap: 8px;
+  }
+  .free-banner-text {
+    letter-spacing: 3px;
+  }
+  .free-banner-subtitle {
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+  }
+}
+
 /* ========= CTA Section ========= */
 .cta-section {
   padding: 80px 0;
@@ -1668,8 +1917,8 @@ img {
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), 
               border-color 0.35s ease, 
               box-shadow 0.35s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* backdrop-filter removed for minimalist styling */
+  /* webkit-backdrop-filter removed */
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -1958,7 +2207,7 @@ img {
   border: 1px solid var(--glass-border);
   border-radius: var(--border-radius-lg);
   padding: 40px;
-  backdrop-filter: blur(20px);
+  /* backdrop-filter removed for minimalist styling */
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 40px var(--glass-shadow);
@@ -2247,7 +2496,7 @@ img {
     max-width: 320px;
     height: 100vh;
     background: var(--nav-bg);
-    backdrop-filter: blur(20px);
+    /* backdrop-filter removed for minimalist styling */
     flex-direction: column;
     justify-content: center;
     gap: 12px;
@@ -2389,7 +2638,7 @@ img {
   left: 0;
   width: 100%;
   background: var(--nav-bg);
-  backdrop-filter: blur(20px);
+  /* backdrop-filter removed for minimalist styling */
   border-top: 1px solid var(--glass-border);
   box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.3);
   z-index: 1000;
