@@ -395,148 +395,179 @@ img {
   box-shadow: 0 8px 30px rgba(0, 212, 255, 0.5);
 }
 
-/* ========= Navbar ========= */
+/* ========= Navbar Redesign (90px) ========= */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 20px 0;
-  transition: all var(--transition-normal);
-  /* backdrop-filter removed for minimalist styling */
-}
-
-.navbar.scrolled {
-  padding: 10px 0;
-  background: var(--nav-bg);
-  /* backdrop-filter removed for minimalist styling */
-  border-bottom: 1px solid var(--glass-border);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(7, 10, 22, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 90px;
+  display: flex;
+  align-items: center;
 }
 
 .navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 0 40px;
 }
 
-.nav-brand {
+/* Left Section: Logo + Info */
+.navbar-left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .nav-logo {
-  width: 50px;
-  height: 50px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  object-fit: contain;
-  background-color: #ffffff;
   padding: 4px;
-  border: 2px solid var(--gold);
-  transition: var(--transition-normal);
-  flex-shrink: 0;
+  background: #ffffff;
+  border: 2px solid #facc15;
+  box-shadow: 0 0 16px rgba(250, 204, 21, 0.2);
+  object-fit: contain;
 }
 
-.navbar.scrolled .nav-logo {
-  width: 42px;
-  height: 42px;
+.college-info {
+  display: flex;
+  flex-direction: column;
+  max-width: 520px;
 }
 
-.nav-title {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
+.college-line1 {
+  color: #facc15;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.college-line2 {
+  color: #facc15;
+  font-size: 20px;
   font-weight: 800;
-  letter-spacing: 3px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  line-height: 1.1;
 }
 
+.college-address {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* Right Section: Menu + Button */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Menu Links */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 30px;
 }
 
 .nav-links a {
-  padding: 8px 18px;
+  padding: 4px 0;
   font-family: var(--font-accent);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  border-radius: 50px;
-  transition: var(--transition-normal);
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 0;
+  transition: all 0.3s ease;
   position: relative;
 }
 
-/* Ensure Register button stays visible with high contrast */
-.nav-links a.btn-primary {
-  color: #0a1628 !important; /* Force dark text on gold button */
-  font-weight: 700;
-  padding: 10px 24px;
+.nav-links a:hover,
+.nav-links a.active {
+  color: #facc15;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--gold);
-  border-radius: 2px;
-  transition: width var(--transition-normal);
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--gold);
+  background: #facc15;
+  transition: width 0.3s ease;
 }
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
-  width: 60%;
+  width: 15px;
 }
 
-.nav-register {
-  margin-left: 12px;
+/* Registration Button */
+.nav-btn-register {
+  background: #facc15 !important;
+  color: #111827 !important;
+  font-weight: 700 !important;
+  padding: 14px 30px !important;
+  border-radius: 999px !important;
+  font-size: 15px !important;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 20px rgba(250, 204, 21, 0.25);
 }
 
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  z-index: 1001;
-  padding: 8px;
+.nav-btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(250, 204, 21, 0.5);
 }
 
-.hamburger span {
-  display: block;
-  width: 28px;
-  height: 3px;
-  background: var(--gold);
-  border-radius: 3px;
-  transition: all var(--transition-normal);
-  transform-origin: center;
+/* Responsive Handling */
+@media (max-width: 1024px) {
+  .navbar .container { padding: 0 24px; }
+  .college-line1 { font-size: 14px; }
+  .college-line2 { font-size: 17px; }
+  .college-address { font-size: 10px; }
+  .navbar-right { gap: 20px; }
+  .nav-links { gap: 20px; }
+  .nav-links a { font-size: 14px; }
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-  transform: scaleX(0);
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+@media (max-width: 768px) {
+  .navbar .container { padding: 0 16px; justify-content: space-between; }
+  
+  .college-line1 { font-size: 11px; }
+  .college-line2 { font-size: 13px; }
+  .college-address { display: none; } /* Hide on mobile */
+  .nav-logo { width: 46px; height: 46px; }
+  .navbar-right { gap: 10px; }
+  .nav-btn-register { display: none; }
+  
+  .hamburger { display: flex; }
+  
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: #050814;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 50px;
+    gap: 30px;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+  
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 20px; }
 }
 
 /* ========= Hero Section ========= */
@@ -547,7 +578,7 @@ img {
   justify-content: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: calc(95px + 60px);
   /* Force Dark Mode styling inside Hero regardless of root theme */
   color: #FFFFFF;
   --text-color: #FFFFFF;
@@ -873,56 +904,24 @@ img {
   /* Important: allows flex children to shrink/truncate properly if needed */
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 50px;
-  font-family: var(--font-accent);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--gold);
-  margin-bottom: 30px;
-  /* backdrop-filter removed for minimalist styling */
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  /* Left-align along with hero-content */
-}
-
-.hero-badge .badge-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--gold);
-  border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-}
-
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  /* Scaled down for 2-column laptop/desktop */
-  font-weight: 900;
-  line-height: 1.05;
-  margin-bottom: 24px;
-  letter-spacing: -1px;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  color: #facc15;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .hero-title { font-size: 48px; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 34px; margin-top: 20px; }
 }
 
 .hero-title .line {
@@ -947,12 +946,20 @@ img {
   /* Provides internal breathing room so 'NE' doesn't get clipped by overflow:hidden wrappers */
 }
 
-.hero-title .year {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 400;
-  color: var(--text-muted);
-  letter-spacing: 6px;
-  margin-top: 8px;
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1024px) {
+  .hero-subtitle { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle { font-size: 13px; }
 }
 
 .hero-description {
@@ -2388,7 +2395,7 @@ img {
 }
 
 .page-loader .loader-text::after {
-  content: 'ANVESHANE';
+  content: 'Anweshane-26';
   position: absolute;
   left: 0;
   top: 0;
