@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Running track event</title>
+  <desc id="desc">Premium illustrated banner showing sprint lanes and runners.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="1" stop-color="#4a1f2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <path d="M-40 342c190-95 430-112 880-120v228H-40z" fill="#c6423c" opacity=".72"/>
+  <g stroke="#ffffff" stroke-opacity=".5" stroke-width="4">
+    <path d="M0 365c210-78 454-94 800-100"/>
+    <path d="M0 405c230-78 470-88 800-92"/>
+    <path d="M0 325c190-74 442-94 800-106"/>
+  </g>
+  <g stroke="#ffe29a" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="310" cy="132" r="25" fill="#ffe29a" stroke="none"/>
+    <path d="M315 166l-52 72"/>
+    <path d="M286 202l-88 12"/>
+    <path d="M284 220l74 52"/>
+    <path d="M262 238l-60 80"/>
+    <path d="M356 272l76 52"/>
+  </g>
+  <g stroke="#67e8f9" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" opacity=".9">
+    <circle cx="520" cy="154" r="22" fill="#67e8f9" stroke="none"/>
+    <path d="M524 184l-46 62"/>
+    <path d="M496 212l-72 10"/>
+    <path d="M500 246l62 50"/>
+  </g>
+  <text x="52" y="384" fill="#ffffff" font-family="Arial, sans-serif" font-size="46" font-weight="800">Running</text>
+  <text x="52" y="416" fill="#ffd082" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">TRACK EVENTS</text>
+</svg>

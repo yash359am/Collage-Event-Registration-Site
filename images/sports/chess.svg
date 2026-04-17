@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Chess competition event</title>
+  <desc id="desc">Premium illustrated banner showing a chess board and pieces.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="1" stop-color="#18334a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe29a"/>
+      <stop offset="1" stop-color="#f6b93b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <circle cx="650" cy="80" r="180" fill="#67e8f9" opacity=".12"/>
+  <g transform="translate(94 98) skewX(-10)">
+    <rect x="0" y="0" width="390" height="230" rx="28" fill="#06101f" stroke="#ffffff" stroke-opacity=".18" stroke-width="4"/>
+    <g opacity=".95">
+      <rect x="35" y="36" width="65" height="50" fill="#f8fbff"/>
+      <rect x="100" y="36" width="65" height="50" fill="#16263a"/>
+      <rect x="165" y="36" width="65" height="50" fill="#f8fbff"/>
+      <rect x="230" y="36" width="65" height="50" fill="#16263a"/>
+      <rect x="295" y="36" width="65" height="50" fill="#f8fbff"/>
+      <rect x="35" y="86" width="65" height="50" fill="#16263a"/>
+      <rect x="100" y="86" width="65" height="50" fill="#f8fbff"/>
+      <rect x="165" y="86" width="65" height="50" fill="#16263a"/>
+      <rect x="230" y="86" width="65" height="50" fill="#f8fbff"/>
+      <rect x="295" y="86" width="65" height="50" fill="#16263a"/>
+      <rect x="35" y="136" width="65" height="50" fill="#f8fbff"/>
+      <rect x="100" y="136" width="65" height="50" fill="#16263a"/>
+      <rect x="165" y="136" width="65" height="50" fill="#f8fbff"/>
+      <rect x="230" y="136" width="65" height="50" fill="#16263a"/>
+      <rect x="295" y="136" width="65" height="50" fill="#f8fbff"/>
+    </g>
+  </g>
+  <g transform="translate(520 145)" fill="url(#gold)">
+    <rect x="16" y="142" width="122" height="24" rx="12"/>
+    <rect x="34" y="116" width="86" height="30" rx="14"/>
+    <path d="M52 52h50l14 66H38z"/>
+    <circle cx="77" cy="34" r="32"/>
+    <rect x="65" y="0" width="24" height="42" rx="12"/>
+  </g>
+  <text x="52" y="384" fill="#ffffff" font-family="Arial, sans-serif" font-size="46" font-weight="800">Chess</text>
+  <text x="52" y="416" fill="#ffe29a" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">INDOOR GAMES</text>
+</svg>

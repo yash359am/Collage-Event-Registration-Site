@@ -1,24 +1,19 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>\n  <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore and register for all events at Anweshane-26 2026 - Technical, Cultural, Sports, and Workshops at Bahubali College of Engineering.">
-  <title>Events & Register | Anweshane-26 - BCE</title>
+  <meta name="description" content="Browse technical, cultural, and sports events for About Anweshane - 2K26 at Bahubali College of Engineering. Review rules, compare formats, and register with confidence.">
+  <meta name="theme-color" content="#030816">
+  <title>Events & Registration | About Anweshane - 2K26</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/events-page.css">
   <link rel="icon" href="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" type="image/jpeg">
 </head>
 <body class="dark-theme">
-  <!-- Ambient Aura Backdrop -->
-  <div class="ambient-aura">
-    <div class="aura-orb aura-1"></div>
-    <div class="aura-orb aura-2"></div>
-    <div class="aura-orb aura-3"></div>
-    <div class="aura-orb aura-4"></div>
-    <div class="aura-orb aura-5"></div>
-  </div>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
 
 
   <!-- Scroll Progress Bar -->
@@ -31,7 +26,26 @@
 
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
-    <span class="loader-text">Anweshane-26 2K26</span>
+    <div class="loader-shell" aria-label="Loading About Anweshane - 2K26">
+      <span class="loader-kicker">Bahubali College of Engineering</span>
+      <div class="loader-meta" aria-hidden="true">
+        <span>National Level Fest</span>
+        <span>Shravanabelagola</span>
+        <span>Edition 2K26</span>
+      </div>
+      <span class="loader-mark" aria-hidden="true">A2K26</span>
+      <h1 class="loader-title">About Anweshane - 2K26</h1>
+      <p class="loader-subtitle">Engineering, culture, sports, and student talent in one fest experience.</p>
+      <div class="loader-pillars" aria-hidden="true">
+        <span>Tech</span>
+        <span>Culture</span>
+        <span>Sports</span>
+      </div>
+      <div class="loader-status" aria-hidden="true">
+        <span class="loader-status-line"></span>
+        <span class="loader-status-text">Preparing your campus fest experience</span>
+      </div>
+    </div>
   </div>
 
   <!-- Mobile Nav Overlay -->
@@ -42,9 +56,6 @@
     <div class="container">
       <!-- Left: Logo + College Info -->
       <div class="navbar-left">
-        <a href="index.html" class="nav-brand">
-          <img loading="lazy" src="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" alt="BCE Logo" class="nav-logo">
-        </a>
         <div class="college-info">
           <span class="college-line1">SSDJJP SANGHA (R)</span>
           <span class="college-line2">BAHUBALI COLLEGE OF ENGINEERING</span>
@@ -57,10 +68,10 @@
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">Home</a></li>
           <li><a href="index.html#about">About</a></li>
-          <li><a href="events.html" class="active">Events</a></li>
+          <li><a href="events.html" class="active" aria-current="page">Events</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
-        <a href="events.html" class="btn btn-primary nav-btn-register">REGISTER NOW</a>
+        <a href="#registrationGuide" class="btn btn-primary nav-btn-register">Registration Guide</a>
         <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
@@ -69,53 +80,114 @@
       </div>
     </div>
   </nav>
-  <!-- Page Header -->
-  <div class="page-header">
-    <div class="container">
-      <h1 id="anveshaneTitle">Events & Registration</h1>
-      <p>Discover our exciting lineup and register for your favourite events</p>
+  <main id="mainContent" class="events-page">
+    <div class="sci-fi-scene" aria-hidden="true">
+      <!-- Real college-fest ambience: college video provided by the event organizer. -->
+      <video class="cinematic-bg-video" autoplay muted loop playsinline preload="metadata"
+        poster="images/hero-bg.jpeg">
+        <source src="images/college/1College-NEW.mp4" type="video/mp4">
+      </video>
+      <div class="cinematic-grade"></div>
     </div>
-  </div>
-
-  <!-- Events Section -->
-  <section class="section" style="padding-top: 20px;">
-    <div class="container">
-      <!-- Free Registration Banner (Top) -->
-      <div class="free-banner-wrapper" style="margin-bottom: 40px; transform: scale(0.95); transform-origin: top center;">
-        <div class="free-banner">
-          <div class="free-banner-glow"></div>
-          <div class="free-banner-shimmer"></div>
-          <div class="free-banner-content">
-            <span class="free-banner-sparkle">✦</span>
-            <span class="free-banner-icon">🎉</span>
-            <span class="free-banner-text">
-              <span class="free-word">FREE</span> REGISTRATION
-            </span>
-            <span class="free-banner-icon">🎉</span>
-            <span class="free-banner-sparkle">✦</span>
+    <!-- Structural refactor: hero + discovery controls give the page a clear premium entry point. -->
+    <header class="events-hero" id="top">
+      <div class="container events-hero__grid">
+        <div class="events-hero__content">
+          <h1 class="events-hero__title">
+            <span class="events-hero__presenter" translate="no">Bahubali College of Engineering Presents</span>
+            <span class="events-hero__title-line"><span translate="no">About Anweshane - 2K26</span> Events & Registration</span>
+          </h1>
+          <p class="events-hero__subtitle">
+            Explore every technical, cultural, and sports event in one place. Review rules quickly, compare event formats, and register through a polished page built for a real college fest.
+          </p>
+          <div class="events-hero__highlights" aria-label="Fest highlights">
+            <span class="hero-pill">Free Registration</span>
+            <span class="hero-pill">3 Core Categories</span>
+            <span class="hero-pill">Max 3 Cultural Events Per Participant</span>
           </div>
-          <div class="free-banner-subtitle">Zero Entry Fee • All Events • Max 3 Cultural Events Per Participant</div>
-          <div class="free-banner-particles">
-            <span class="fb-particle"></span>
-            <span class="fb-particle"></span>
-            <span class="fb-particle"></span>
-            <span class="fb-particle"></span>
-            <span class="fb-particle"></span>
-            <span class="fb-particle"></span>
+          <div class="events-hero__actions">
+            <a href="#explore-events" class="btn btn-primary">Browse Events</a>
+            <a href="#registrationGuide" class="btn btn-outline">How Registration Works</a>
           </div>
         </div>
-      </div>
 
-      <!-- Filters -->
-      <div class="event-filters" id="eventFilters">
-        <button class="filter-btn active" data-filter="all">All Events</button>
-        <button class="filter-btn" data-filter="tech">Technical</button>
-        <button class="filter-btn" data-filter="cultural">Cultural</button>
-        <button class="filter-btn" data-filter="sports">Sports</button>
-      </div>
+        <aside class="events-hero__panel" aria-label="Fest overview">
+          <div class="hero-stat-card">
+            <span class="hero-stat-card__value" id="heroEventCount">0</span>
+            <span class="hero-stat-card__label">Events Listed</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-card__value">Free</span>
+            <span class="hero-stat-card__label">Entry for BCE Students</span>
+          </div>
+          <div class="hero-stat-card">
+            <span class="hero-stat-card__value">Rules</span>
+            <span class="hero-stat-card__label">Available on Every Event Card</span>
+          </div>
 
-      <!-- Events Grid -->
-      <div class="events-full-grid" id="eventsGrid">
+          <nav class="events-quick-jumps" aria-label="Quick jump links">
+            <a href="#category-tech" class="jump-chip">Technical</a>
+            <a href="#category-cultural" class="jump-chip">Cultural</a>
+            <a href="#category-sports" class="jump-chip">Sports</a>
+            <a href="#sports-indoor-games" class="jump-chip">Indoor Games</a>
+            <a href="#sports-group-games" class="jump-chip">Group Games</a>
+            <a href="#sports-field-events" class="jump-chip">Field Events</a>
+            <a href="#sports-track-events" class="jump-chip">Track Events</a>
+          </nav>
+        </aside>
+      </div>
+    </header>
+
+    <section class="events-directory section" id="explore-events">
+      <div class="container">
+        <div class="events-toolbar">
+          <div class="events-toolbar__copy">
+            <p class="events-kicker">Plan Your Fest</p>
+            <h2>Find the right event quickly</h2>
+            <p>Search across titles, categories, and rules, then jump straight to the section you need.</p>
+          </div>
+
+          <div class="events-toolbar__controls">
+            <label class="event-search" for="eventSearch">
+              <span class="event-search__label">Search Events</span>
+              <input id="eventSearch" name="event-search" type="search" inputmode="search" autocomplete="off" placeholder="Search events, categories, or rules...">
+            </label>
+
+            <nav class="event-jump-links" aria-label="Jump to key sections">
+              <a href="#category-tech" class="jump-chip">Technical</a>
+              <a href="#category-cultural" class="jump-chip">Cultural</a>
+              <a href="#sports-indoor-games" class="jump-chip">Indoor Games</a>
+              <a href="#sports-group-games" class="jump-chip">Group Games</a>
+              <a href="#sports-field-events" class="jump-chip">Field Events</a>
+              <a href="#sports-track-events" class="jump-chip">Track Events</a>
+            </nav>
+
+            <div class="event-filters-wrap">
+              <div class="event-filters" id="eventFilters" aria-label="Filter events by category">
+                <button class="filter-btn active" data-filter="all" type="button" aria-pressed="true">All Events</button>
+                <button class="filter-btn" data-filter="tech" type="button" aria-pressed="false">Technical</button>
+                <button class="filter-btn" data-filter="cultural" type="button" aria-pressed="false">Cultural</button>
+                <button class="filter-btn" data-filter="sports" type="button" aria-pressed="false">Sports</button>
+              </div>
+              <p class="event-results" id="eventResults" aria-live="polite">Showing all events.</p>
+            </div>
+
+            <div class="event-status-legend" aria-label="Registration legend">
+              <span class="legend-chip legend-chip--open">Open Link</span>
+              <span class="legend-chip legend-chip--offline">Offline Registration</span>
+              <span class="legend-chip legend-chip--tba">Schedule TBA</span>
+              <span class="legend-chip legend-chip--rules">Rules Available</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Existing event data is preserved below; only the surrounding hierarchy is upgraded. -->
+        <div class="events-full-grid" id="eventsGrid">
+          <div class="event-category-header event-category-header--primary" data-category="tech" id="category-tech">
+            <p class="event-category-header__eyebrow">Technical Events</p>
+            <h2>Innovation Arena</h2>
+            <p class="event-category-header__meta">Build, quiz, design, and compete in the fest's technical track.</p>
+          </div>
 
         <!-- Event 6: Technical Quiz -->
         <div class="event-full-card" data-category="tech" id="quiz-event">
@@ -124,7 +196,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">💡</span>
             <div class="card-header-info">
               <h3>Technical Quiz</h3>
               <span class="card-category tech">Technical</span>
@@ -135,11 +206,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 4 Members </span>
+              <span>Day 2</span>
+              <span>2 Hours</span>
+              <span>Team of 4</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ4y7y8Oz41JfaHJeC6zzEGSCYzfBCKqTG2ofU47qUWBz-yQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ4y7y8Oz41JfaHJeC6zzEGSCYzfBCKqTG2ofU47qUWBz-yQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -150,7 +221,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🔧</span>
             <div class="card-header-info">
               <h3>Installation Competition</h3>
               <span class="card-category tech">Technical</span>
@@ -159,7 +229,7 @@
           <div class="card-body">
             <p>Transform trash into treasure! Create a stunning art installation using waste and recycled materials. Unleash your creativity and spread the message of sustainability through art.</p>
             <div class="event-rules">
-              <h4 class="rules-title">📋 Rules & Guidelines</h4>
+              <h4 class="rules-title">Rules and Guidelines</h4>
               <ul class="rules-list">
                 <li>Each team must consist of exactly <strong>4 members</strong>.</li>
                 <li>Teams must <strong>bring their own waste materials</strong> (plastic, cardboard, bottles, cans, old CDs, scrap, etc.).</li>
@@ -174,11 +244,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 4 Members</span>
+              <span>Day 1</span>
+              <span>2 Hours</span>
+              <span>Team of 4</span>
             </div>
-            <a href=" https://docs.google.com/forms/d/e/1FAIpQLScGsMIi2pAaGLgzywXb0WMPRqZeyY_aWMdcgyvBUNkfV2DS6A/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScGsMIi2pAaGLgzywXb0WMPRqZeyY_aWMdcgyvBUNkfV2DS6A/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -200,6 +270,11 @@
 
 
      
+        <div class="event-category-header event-category-header--primary" data-category="cultural" id="category-cultural">
+          <p class="event-category-header__eyebrow">Cultural Events</p>
+          <h2>Creative Showcase</h2>
+          <p class="event-category-header__meta">Perform, present, debate, and represent your branch on the cultural stage.</p>
+        </div>
 
         <!-- Event 18: Cooking Without Fire -->
         <div class="event-full-card" data-category="cultural">
@@ -208,7 +283,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🥗</span>
             <div class="card-header-info">
               <h3>Cooking Without Fire</h3>
               <span class="card-category cultural">Cultural</span>
@@ -219,11 +293,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ 1 Hour</span>
-              <span>👥 4 Members</span>
+              <span>Day 2</span>
+              <span>1 Hour</span>
+              <span>Team of 4</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe4E0Ot9Qs8wJK1zS5JZy_HEwBfGgvYVf7G6vgbOhk-khqAMA/viewform?usp=dialog" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe4E0Ot9Qs8wJK1zS5JZy_HEwBfGgvYVf7G6vgbOhk-khqAMA/viewform?usp=dialog" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -234,7 +308,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🌸</span>
             <div class="card-header-info">
               <h3>Rangoli Competition</h3>
               <span class="card-category cultural">Cultural</span>
@@ -245,11 +318,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>2 Hours</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSepUEZb8uqV1O3An4qUqi07nZ4e-LNQqLz8i1U2Neoqm5sXIA/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSepUEZb8uqV1O3An4qUqi07nZ4e-LNQqLz8i1U2Neoqm5sXIA/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -260,7 +333,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">✍️</span>
             <div class="card-header-info">
               <h3>Essay Writing (Kannada)</h3>
               <span class="card-category cultural">Cultural</span>
@@ -271,11 +343,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 1 Hour</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>1 Hour</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSchRKwGcS2llsct8-v-2p5sBLeHHp1lnWic6ymaBu_lEtxjvw/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSchRKwGcS2llsct8-v-2p5sBLeHHp1lnWic6ymaBu_lEtxjvw/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -286,7 +358,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">👯</span>
             <div class="card-header-info">
               <h3>Group Dance</h3>
               <span class="card-category cultural">Cultural</span>
@@ -297,11 +368,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ 10 Mins</span>
-              <span>👥 Team (6)</span>
+              <span>Day 2</span>
+              <span>10 Minutes</span>
+              <span>Team of 6</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIoLN7gzDGKIv3QGu9czV3MOpkx4TrHYZtWDqREHS9KEBhSQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIoLN7gzDGKIv3QGu9czV3MOpkx4TrHYZtWDqREHS9KEBhSQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -312,7 +383,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">💃</span>
             <div class="card-header-info">
               <h3>Solo Dance</h3>
               <span class="card-category cultural">Cultural</span>
@@ -323,11 +393,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ 5 Mins</span>
-              <span>👥 Individual</span>
+              <span>Day 2</span>
+              <span>5 Minutes</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFIo_IRandhLCftlinf8JupD8q5N2xDDJ93mzkM46fM5yAIQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdFIo_IRandhLCftlinf8JupD8q5N2xDDJ93mzkM46fM5yAIQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -338,7 +408,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🎤</span>
             <div class="card-header-info">
               <h3>Singing Solo</h3>
               <span class="card-category cultural">Cultural</span>
@@ -349,11 +418,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 4 Mins</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>4 Minutes</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5SQ9AWQmQSLJpGswMU0rmMh8Di_QcPFSfa0O_3jMkVR_4xg/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc5SQ9AWQmQSLJpGswMU0rmMh8Di_QcPFSfa0O_3jMkVR_4xg/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -367,20 +436,19 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🎨</span>
             <div class="card-header-info">
-              <h3>Logo Design </h3>
+              <h3>Logo Design</h3>
               <span class="card-category cultural">Cultural</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Design a logo for the Aweshane 2K26.</p>
+            <p>Design a logo for About Anweshane - 2K26.</p>
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>👥 Individual</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLScC5Em-k7QFVsquJo0RUA_OLp366rGqHIX0JDXeGp5QRgtUww/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScC5Em-k7QFVsquJo0RUA_OLp366rGqHIX0JDXeGp5QRgtUww/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -396,7 +464,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🙊</span>
             <div class="card-header-info">
               <h3>Dumb Charades</h3>
               <span class="card-category cultural">Cultural</span>
@@ -407,11 +474,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 Team of 4</span>
+              <span>Day 2</span>
+              <span>2 Hours</span>
+              <span>Team of 4</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBrMtT47e8eS7KtX5OrcZKNzB1EVX67W-RNZblwa2AQnV4ZQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdBrMtT47e8eS7KtX5OrcZKNzB1EVX67W-RNZblwa2AQnV4ZQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -422,7 +489,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">🗣️</span>
             <div class="card-header-info">
               <h3>Debate Competition</h3>
               <span class="card-category cultural">Cultural</span>
@@ -433,11 +499,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>2 Hours</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSexHZP4D1UA56dmS6bR6OUaUZu54zyFmu9TsCJpYYYQt1MhgQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSexHZP4D1UA56dmS6bR6OUaUZu54zyFmu9TsCJpYYYQt1MhgQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -450,22 +516,21 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">👠</span>
             <div class="card-header-info">
               <h3>Fashion Show</h3>
               <span class="card-category cultural">Cultural</span>
             </div>
           </div>
           <div class="card-body">
-            <p>The main stage highlight! Showcase style, personality, and elegance. Walk the ramp to win the title of Mr./Ms. Anweshane-26 2026.</p>
+            <p>The main stage highlight! Showcase style, personality, and elegance. Walk the ramp to win the title of Mr./Ms. About Anweshane - 2K26.</p>
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 2</span>
-              <span>⏰ Evening</span>
-              <span>👥 Individual/Duo</span>
+              <span>Day 2</span>
+              <span>Evening</span>
+              <span>Individual/Duo</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiL1LSvDIfEMTraoQvDsF2H2so0DMyYdRnns762zvNryBpjQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeiL1LSvDIfEMTraoQvDsF2H2so0DMyYdRnns762zvNryBpjQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -476,7 +541,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">✒️</span>
             <div class="card-header-info">
               <h3>Essay Writing (English)</h3>
               <span class="card-category cultural">Cultural</span>
@@ -487,11 +551,11 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 1 Hour</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>1 Hour</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfkqi-Si2qtXe6pvk2lzyNlyE4_p8JZRmYeo4Fh66F8KbAejQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfkqi-Si2qtXe6pvk2lzyNlyE4_p8JZRmYeo4Fh66F8KbAejQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
@@ -502,7 +566,6 @@
             <div class="card-banner-overlay"></div>
           </div>
           <div class="card-header">
-            <span class="event-emoji">✋</span>
             <div class="card-header-info">
               <h3>Mehendi Competition</h3>
               <span class="card-category cultural">Cultural</span>
@@ -513,914 +576,535 @@
           </div>
           <div class="card-footer">
             <div class="event-details">
-              <span>📅 Day 1</span>
-              <span>⏰ 2 Hours</span>
-              <span>👥 Individual</span>
+              <span>Day 1</span>
+              <span>2 Hours</span>
+              <span>Individual</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_fBKBdvrmaqNeLMfAcG3ABHwFfYTe--UIbfP1H1Gd-GnztQ/viewform" target="_blank" class="register-link">Register →</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc_fBKBdvrmaqNeLMfAcG3ABHwFfYTe--UIbfP1H1Gd-GnztQ/viewform" target="_blank" class="register-link">Register Online</a>
           </div>
         </div>
 
-        
-        
-        <!-- Sports General Rules -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 205325.png" alt="Sports Rules" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        <div class="event-category-header event-category-header--primary sports-arena-heading" data-category="sports" id="category-sports">
+          <p class="event-category-header__eyebrow">Sports Events</p>
+          <h2>Sports Arena</h2>
+          <p class="event-category-header__meta">Official indoor, group, field, and track events for About Anweshane - 2K26, presented with clear registration states and quick access to rules.</p>
+        </div>
+
+        <!-- Structural refactor: the sports arena is rebuilt as modular cards so rules and registration states stay easy to scan. -->
+        <article class="event-full-card sports-rules-card" data-category="sports" data-static-card="true" aria-labelledby="sportsRulesTitle">
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">RL</span>
+            <span class="sports-category-tag sports-category-tag--rules">Rules &amp; Regulations</span>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">📋</span>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
-              <h3>Sports General Rules</h3>
-              <span class="card-category sports">Guidelines</span>
+              <h3 id="sportsRulesTitle">Participation Limits</h3>
+              <span class="card-category sports">Official Sports Rule</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Important guidelines for all participants registering for track and field sports events.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules & Limits</h4>
-              <ul class="rules-list">
-                <li>Participants can participate in <strong>2 Track Events</strong> and <strong>1 Field Event</strong></li>
-                <li>Or participants can play in <strong>1 Track Event</strong> and <strong>2 Field Events</strong></li>
-              </ul>
+            <p>Participants may combine track and field events only within the official college sports participation limit.</p>
+            <div class="sports-rule-options" aria-label="Sports participation options">
+              <div class="sports-rule-option">
+                <strong>Option 1</strong>
+                <span>2 Track events + 1 Field event</span>
+              </div>
+              <div class="sports-rule-option">
+                <strong>Option 2</strong>
+                <span>1 Track event + 2 Field events</span>
+              </div>
             </div>
           </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 All Days</span>
-              <span>⏰ Event Times</span>
-              <span>👥 All Students</span>
-            </div>
-            <a href="#eventsGrid" class="register-link">Read Rules ↑</a>
-          </div>
+        </article>
+
+        <div class="event-category-header event-category-header--subsection" data-category="sports" id="sports-indoor-games">
+          <p class="event-category-header__eyebrow">Sports Arena</p>
+          <h2>Indoor Games</h2>
+          <p class="event-category-header__meta">Strategy and precision events for men and women.</p>
         </div>
 
-        <!-- Section Divider -->
-        <div class="event-category-header" data-category="sports" style="grid-column: 1 / -1; margin: 40px 0 10px; width: 100%; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 15px;">
-          <h2 class="section-title" style="text-align: left; margin-bottom: 5px; font-size: 2.2rem;">Indoor Games</h2>
-          <h3 class="gradient-text" style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 2px;">Men's Events</h3>
-        </div>
-        
-        <!-- Event: Chess (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 210400.png" alt="Chess" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1764105720544-8e5cbb386f0a?auto=format&fit=crop&w=1600&q=80" data-fallback-src="images/sports/chess.svg" alt="Chess competition event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Indoor Games</span><strong>Chess</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">♟️</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">IN</span>
+            <span class="sports-category-tag sports-category-tag--indoor">Indoor</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Chess</h3>
               <span class="card-category sports">Indoor Games</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting chess tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for men only</li>
-<li>Standard chess rules apply</li>
-              </ul>
+            <p>Classic board strategy competition for focused, tactical play.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🥇 Individual</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Individual</span>
             </div>
-            <a  target="_blank"   href="https://docs.google.com/forms/d/e/1FAIpQLSehainW0QvhqOc2l61uWKYNLAN0XuPQ6sSsY694pMPVmlCZKg/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Chess registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSehainW0QvhqOc2l61uWKYNLAN0XuPQ6sSsY694pMPVmlCZKg/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSftrdCsYy1Iz73YhFGiLQ762r-OsVyhRXzdvxpFg9IJIpx0yg/viewform" target="_blank" class="register-link register-link-secondary" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: Carrom (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 211907.png" alt="Carrom" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="images/sports/carrom-event.jpg" data-fallback-src="images/sports/carrom.svg" alt="Carrom board competition event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Indoor Games</span><strong>Carrom</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🎯</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">IN</span>
+            <span class="sports-category-tag sports-category-tag--indoor">Indoor</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Carrom</h3>
               <span class="card-category sports">Indoor Games</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting carrom tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Participants should play in doubles</li>
-                <li>Both participants should be from the same branch</li>
+            <p>Doubles carrom competition for players from the same branch.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Doubles</span>
+            </div>
+            <details class="sports-rules-details">
+              <summary>View Rules</summary>
+              <ul class="rules-list sports-rules-list">
+                <li>Doubles only.</li>
+                <li>Players must be from the same branch.</li>
+                <li>Match format: Best of 3 sets.</li>
               </ul>
-            </div>
+            </details>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🤝 Doubles</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Team of 2</span>
             </div>
-            <a  target="_blank"  href="https://docs.google.com/forms/d/e/1FAIpQLSedLOSN4YSgfnmLGRRU8fa9VkfyaGHmufz0JXBpeSH5r0SsAQ/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Carrom registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSedLOSN4YSgfnmLGRRU8fa9VkfyaGHmufz0JXBpeSH5r0SsAQ/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6N4EMXcxbQj4ffrN8jwfkzcf7ERbtuYooI0W4TfhHADkCRw/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
+        </article>
+
+        <div class="event-category-header event-category-header--subsection" data-category="sports" id="sports-group-games">
+          <p class="event-category-header__eyebrow">Sports Arena</p>
+          <h2>Group Games</h2>
+          <p class="event-category-header__meta">Team-based competitions with branch representation and match formats.</p>
         </div>
-        <!-- Event: Table Tennis (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=1499&auto=format&fit=crop" alt="Table Tennis" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+
+        <article class="event-full-card sports-official-card" data-category="sports" data-registration-state="offline">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1600&q=80" data-fallback-src="images/sports/cricket.svg" alt="Cricket match in college fest" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Group Games</span><strong>Cricket</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🏓</span>
-            <div class="card-header-info">
-              <h3>Table Tennis</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">GR</span>
+            <span class="sports-category-tag sports-category-tag--group">Group</span>
           </div>
-          <div class="card-body">
-            <p>Join the exciting table tennis tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Team should have 2 members</li>
-<li>Both players must belong to same branch</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🤝 Doubles</span>
-            </div>
-            <a target="_blank"  href="https://docs.google.com/forms/d/e/1FAIpQLSdTupoDAuoNRqS3ZR229XPdOv-QQf1M6sm2_UPH-Af_xaYcvg/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Badminton Doubles (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1470&auto=format&fit=crop" alt="Badminton Doubles" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏸</span>
-            <div class="card-header-info">
-              <h3>Badminton Doubles</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Participate in the exciting men's badminton doubles tournament.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for men only</li>
-                <li>Doubles event only</li>
-                <li>Both players must belong to the same branch</li>
-                <li>Standard badminton rules apply</li>
-                <li>Team consists of 2 players</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🤝 Team of 2</span>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSew2DHVaiR5nx4Xeb4xjXGzdvfEFIDF3J_nyAl52ia9pBHkJA/viewform" target="_blank" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Section Divider -->
-        <div class="event-category-header" data-category="sports" style="grid-column: 1 / -1; margin: 40px 0 10px; width: 100%; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 15px;">
-          <h2 class="section-title" style="text-align: left; margin-bottom: 5px; font-size: 2.2rem;">Indoor Games</h2>
-          <h3 class="gradient-text" style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 2px;">Women's Events</h3>
-        </div>
-        
-        <!-- Event: Chess (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 210400.png" alt="Chess" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">♟️</span>
-            <div class="card-header-info">
-              <h3>Chess</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting chess tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for women only</li>
-<li>Standard chess rules apply</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🥇 Individual</span>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSftrdCsYy1Iz73YhFGiLQ762r-OsVyhRXzdvxpFg9IJIpx0yg/viewform" target="_blank" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Carrom (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 211907.png" alt="Carrom" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🎯</span>
-            <div class="card-header-info">
-              <h3>Carrom</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting carrom tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Participants should play in doubles</li>
-                <li>Both participants should be from the same branch</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🤝 Doubles</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe6N4EMXcxbQj4ffrN8jwfkzcf7ERbtuYooI0W4TfhHADkCRw/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Table Tennis (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=1499&auto=format&fit=crop" alt="Table Tennis" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏓</span>
-            <div class="card-header-info">
-              <h3>Table Tennis</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting table tennis tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Team should have 2 members</li>
-<li>Both players must belong to same branch</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🤝 Doubles</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeMzpGrcDtXFgI-FLe6uHOWd2HF-L9pIcuNRS50XOyTMl5-0g/viewform?usp=send_form" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Badminton Doubles (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1470&auto=format&fit=crop" alt="Badminton Doubles" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏸</span>
-            <div class="card-header-info">
-              <h3>Badminton Doubles</h3>
-              <span class="card-category sports">Indoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Participate in the exciting women's badminton doubles tournament.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for women only</li>
-                <li>Doubles event only</li>
-                <li>Both players must belong to the same branch</li>
-                <li>Standard badminton rules apply</li>
-                <li>Team consists of 2 players</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🤝 Team of 2</span>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc3nAaIRiCm7isgkV-9gORrSGQTwVhXVT8aM6hGLxHA304Nww/viewform"  target="_blank" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Section Divider -->
-        <div class="event-category-header" data-category="sports" style="grid-column: 1 / -1; margin: 40px 0 10px; width: 100%; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 15px;">
-          <h2 class="section-title" style="text-align: left; margin-bottom: 5px; font-size: 2.2rem;">Outdoor Games</h2>
-          <h3 class="gradient-text" style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 2px;">Men's Events</h3>
-        </div>
-        
-        <!-- Event: Cricket (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1467&auto=format&fit=crop" alt="Cricket" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏏</span>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Cricket</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Group Games</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting cricket tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Registration for this game will be offline only</li>
-                <li>One team from one branch (team comprises 2nd, 3rd and 4th year students)</li>
-                <li>One team from Basic Science & Humanities (team comprises students from all branches)</li>
-                <li>Participants should make a team and get signature approval from their respective branch HOD</li>
-                <li>Participants should bring bats and ball will be provided by the college</li>
-                <li>The game will be 5 overs only</li>
+            <p>Five-over branch cricket format with offline registration only.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men</span>
+              <span class="sports-chip">Format: Team Event</span>
+            </div>
+            <details class="sports-rules-details">
+              <summary>View Rules</summary>
+              <ul class="rules-list sports-rules-list">
+                <li>Registration is offline only.</li>
+                <li>One team per branch for 2nd, 3rd, and 4th year students.</li>
+                <li>One team from Basic Science &amp; Humanities.</li>
+                <li>HOD signature is required.</li>
+                <li>Participants must bring bats.</li>
+                <li>The ball will be provided by the college.</li>
+                <li>Match format: 5 overs.</li>
               </ul>
-            </div>
+            </details>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏆 Team</span>
+              <span>Schedule TBA</span>
+              <span>Men</span>
+              <span>Offline Entry</span>
             </div>
-            <a href="#" class="register-link">Register Offline →</a>
-          </div>
-        </div>
-        <!-- Event: Tug of War (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212233.png" alt="Tug of War" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🪢</span>
-            <div class="card-header-info">
-              <h3>Tug of War</h3>
-              <span class="card-category sports">Outdoor Games</span>
+            <div class="sports-actions" aria-label="Cricket registration status">
+              <span class="sports-offline-badge">Offline Registration</span>
             </div>
           </div>
-          <div class="card-body">
-            <p>Join the exciting tug of war tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for men only</li>
-<li>Standard rules apply ,11 members 3 Substitutes players</li>
-              </ul>
-            </div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1600&q=80" data-fallback-src="images/sports/throw-ball.svg" alt="Throw ball event in action" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Group Games</span><strong>Throw Ball</strong></div>
           </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏆 Team</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScTV7Ssd0YNE8ng956VL0M19856jfbn_f2rTzwBmDEYjkDPKA/viewform" class="register-link">Register →</a>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">GR</span>
+            <span class="sports-category-tag sports-category-tag--group">Group</span>
           </div>
-        </div>
-        <!-- Event: Shot Put (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 213309.png" alt="Shot Put" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🪨</span>
-            <div class="card-header-info">
-              <h3>Shot Put</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting shot put tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏅 Field</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSenqbGVnP3kl2kendsLc-0f5Iht9jcwkwG20iKQssFSNSIbdw/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Javelin Throw (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212510.png" alt="Javelin Throw" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🗡️</span>
-            <div class="card-header-info">
-              <h3>Javelin Throw</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting javelin throw tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏅 Field</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScN33c84Dl25V-tu32yYJ_2kwJ1rDSlp6ImaIzxDhQy4S5k0w/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Discus Throw (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212915.png" alt="Discus Throw" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">💿</span>
-            <div class="card-header-info">
-              <h3>Discus Throw</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting discus throw tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏅 Field</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScJtsJ8DjSg2EihZzAWvoem0YhwIx6TYtsDivq8ZYbZ0TxOxA/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Sack Race (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1438&auto=format&fit=crop" alt="Sack Race" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏃</span>
-            <div class="card-header-info">
-              <h3>Sack Race</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting sack race tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏅 Field</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSddXwnr3Wh00D_6q7HojkK6UdHar4ibIE9DZ8CkIPwXq2684w/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: 100m Running (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop" alt="100m Running" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">👟</span>
-            <div class="card-header-info">
-              <h3>100m Running</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting 100m running tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Track events as per rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>⚡ Track</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScXMT3n6rwT0pFAsKESYKdmhN1LsWZ_I_--0c4ZhiqHl2AP_A/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: 200m Running (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop" alt="200m Running" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">👟</span>
-            <div class="card-header-info">
-              <h3>200m Running</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Join the exciting 200m running tournament for men.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Track events as per rules</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>⚡ Track</span>
-            </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSeax__Df-9FWr8XWfdrwOYQaYrKp8vbT4lIupFpj11uSJ16vg/viewform" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Event: Long Jump (Men) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 213131.png" alt="Long Jump" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏃</span>
-            <div class="card-header-info">
-              <h3>Long Jump</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Show your speed, balance, and strength in the men's long jump competition.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for men only</li>
-                <li>Individual participation only</li>
-                <li>Participants must follow event instructions</li>
-                <li>Decision of judges will be final</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Men</span>
-              <span>🏅 Individual</span>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe69t-sBhFlIK_R4G7_XgQe7_B4FpWBlrpHGjrUeGiPzHLGjw/viewform" target="_blank" class="register-link">Register →</a>
-          </div>
-        </div>
-        <!-- Section Divider -->
-        <div class="event-category-header" data-category="sports" style="grid-column: 1 / -1; margin: 40px 0 10px; width: 100%; border-bottom: 1px solid rgba(255,215,0,0.2); padding-bottom: 15px;">
-          <h2 class="section-title" style="text-align: left; margin-bottom: 5px; font-size: 2.2rem;">Outdoor Games</h2>
-          <h3 class="gradient-text" style="font-family: var(--font-accent); text-transform: uppercase; letter-spacing: 2px;">Women's Events</h3>
-        </div>
-        
-        <!-- Event: Throw Ball (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=1467&auto=format&fit=crop" alt="Throw Ball" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏐</span>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Throw Ball</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Group Games</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting throw ball tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>One team from one branch (team comprises 2nd, 3rd and 4th year students)</li>
-                <li>One team from Basic Science & Humanities (team comprises students from all branches)</li>
-                <li>Participants should make a team and get signature approval from their respective branch HOD</li>
+            <p>Women's team competition played in a best-of-three set format.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Women</span>
+              <span class="sports-chip">Format: Team Event</span>
+            </div>
+            <details class="sports-rules-details">
+              <summary>View Rules</summary>
+              <ul class="rules-list sports-rules-list">
+                <li>One team per branch for 2nd, 3rd, and 4th year students.</li>
+                <li>One team from Basic Science &amp; Humanities.</li>
+                <li>HOD signature is required.</li>
+                <li>Match format: Best of 3 sets.</li>
               </ul>
-            </div>
+            </details>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏆 Team</span>
+              <span>Schedule TBA</span>
+              <span>Women</span>
+              <span>Best of 3</span>
             </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaa4plnyeQppp1a0KdDSEIQftZkVCV9miAaxQr7UuNZXhrfQ/viewform" class="register-link">Register Offline →</a>
+            <div class="sports-actions" aria-label="Throw Ball registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfaa4plnyeQppp1a0KdDSEIQftZkVCV9miAaxQr7UuNZXhrfQ/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: Tug of War (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212233.png" alt="Tug of War" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/7551396/pexels-photo-7551396.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/tug-of-war.svg" alt="Tug of war team event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Group Games</span><strong>Tug of War</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🪢</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">GR</span>
+            <span class="sports-category-tag sports-category-tag--group">Group</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Tug of War</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Group Games</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting tug of war tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for women only</li>
-<li>Standard rules apply,11 members 3 Substitutes players</li>
-              </ul>
+            <p>Power and coordination event for large teams in men's and women's brackets.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Team Event</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏆 Team</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Team Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfw2fEEtYQ_luCZdi-UEib2rJT7c-SUQnT5vTXHmqCfSIYjYA/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Tug of War registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScTV7Ssd0YNE8ng956VL0M19856jfbn_f2rTzwBmDEYjkDPKA/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw2fEEtYQ_luCZdi-UEib2rJT7c-SUQnT5vTXHmqCfSIYjYA/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
+        </article>
+
+        <div class="event-category-header event-category-header--subsection" data-category="sports" id="sports-field-events">
+          <p class="event-category-header__eyebrow">Sports Arena</p>
+          <h2>Field Events</h2>
+          <p class="event-category-header__meta">Strength, technique, and throwing events for men and women.</p>
         </div>
-        <!-- Event: Shot Put (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 213309.png" alt="Shot Put" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/12659341/pexels-photo-12659341.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/shot-put.svg" alt="Shot put athlete event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Field Events</span><strong>Shot Put</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🪨</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">FD</span>
+            <span class="sports-category-tag sports-category-tag--field">Field</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Shot Put</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Field Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting shot put tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
+            <p>Power-focused throwing event conducted separately for men's and women's participants.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏅 Field</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Field Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScMLcthTdBfL5-7snRlrOI-IGUEvggsIILDCkbU-6wenojkug/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Shot Put registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSenqbGVnP3kl2kendsLc-0f5Iht9jcwkwG20iKQssFSNSIbdw/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScMLcthTdBfL5-7snRlrOI-IGUEvggsIILDCkbU-6wenojkug/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: Javelin Throw (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212510.png" alt="Javelin Throw" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/12585928/pexels-photo-12585928.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/javelin.svg" alt="Javelin throw athlete event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Field Events</span><strong>Javelin Throw</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🗡️</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">FD</span>
+            <span class="sports-category-tag sports-category-tag--field">Field</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Javelin Throw</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Field Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting javelin throw tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
+            <p>Technique-driven field event for controlled distance throws.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏅 Field</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Field Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdmFgQCK-YacOjS3L-FRZGdzy5Z-fxo4rZ4pnqoxhAXdEsIkw/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Javelin Throw registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScN33c84Dl25V-tu32yYJ_2kwJ1rDSlp6ImaIzxDhQy4S5k0w/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdmFgQCK-YacOjS3L-FRZGdzy5Z-fxo4rZ4pnqoxhAXdEsIkw/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: Discus Throw (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 212915.png" alt="Discus Throw" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/13499446/pexels-photo-13499446.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/discus.svg" alt="Discus throw action event" class="card-banner-img sports-card-img sports-card-img--discus">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Field Events</span><strong>Discus Throw</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">💿</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">FD</span>
+            <span class="sports-category-tag sports-category-tag--field">Field</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Discus Throw</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Field Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting discus throw tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
+            <p>Field event focused on balance, spin control, and throw distance.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏅 Field</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Field Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSca66u7Sl6SbzHoENJkwtGwpw7l7Vdxr0iMfkcoN1lAJ6hhtw/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Discus Throw registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScJtsJ8DjSg2EihZzAWvoem0YhwIx6TYtsDivq8ZYbZ0TxOxA/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSca66u7Sl6SbzHoENJkwtGwpw7l7Vdxr0iMfkcoN1lAJ6hhtw/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: Sack Race (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?q=80&w=1438&auto=format&fit=crop" alt="Sack Race" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/33599823/pexels-photo-33599823.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/sack-race.svg" alt="Sack race event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Field Events</span><strong>Sack Race</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">🏃</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">FD</span>
+            <span class="sports-category-tag sports-category-tag--field">Field</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>Sack Race</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Field Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting sack race tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Field events as per college rules</li>
-              </ul>
+            <p>Fun speed-and-balance race held as an individual field event.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏅 Field</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Field Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSe71wi0hLLJTdH7oHl--xkcrZYYDOGtYcADOGZuBLpnNJIJYw/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="Sack Race registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSddXwnr3Wh00D_6q7HojkK6UdHar4ibIE9DZ8CkIPwXq2684w/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSe71wi0hLLJTdH7oHl--xkcrZYYDOGtYcADOGZuBLpnNJIJYw/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
+        </article>
+
+        <div class="event-category-header event-category-header--subsection" data-category="sports" id="sports-track-events">
+          <p class="event-category-header__eyebrow">Sports Arena</p>
+          <h2>Track Events</h2>
+          <p class="event-category-header__meta">Sprint events for men and women with direct online registration.</p>
         </div>
-        <!-- Event: 100m Running (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop" alt="100m Running" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/5961801/pexels-photo-5961801.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/running.svg" alt="100 meter running track event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Track Events</span><strong>100m Running</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">👟</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">TR</span>
+            <span class="sports-category-tag sports-category-tag--track">Track</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>100m Running</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Track Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting 100m running tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Track events as per rules</li>
-              </ul>
+            <p>Short-distance sprint event for athletes competing in men's and women's heats.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>⚡ Track</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Track Event</span>
             </div>
-            <a  target="_blank"  href="https://docs.google.com/forms/d/e/1FAIpQLScXMT3n6rwT0pFAsKESYKdmhN1LsWZ_I_--0c4ZhiqHl2AP_A/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="100m Running registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScXMT3n6rwT0pFAsKESYKdmhN1LsWZ_I_--0c4ZhiqHl2AP_A/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScXMT3n6rwT0pFAsKESYKdmhN1LsWZ_I_--0c4ZhiqHl2AP_A/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
-        </div>
-        <!-- Event: 200m Running (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?q=80&w=1470&auto=format&fit=crop" alt="200m Running" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
+        </article>
+
+        <article class="event-full-card sports-official-card" data-category="sports">
+          <div class="card-banner sports-card-media">
+            <img loading="lazy" src="https://images.pexels.com/photos/5961801/pexels-photo-5961801.jpeg?auto=compress&cs=tinysrgb&w=1600&q=80" data-fallback-src="images/sports/running.svg" alt="200 meter running track event" class="card-banner-img sports-card-img">
+            <div class="card-banner-overlay sports-card-overlay"></div>
+            <div class="sports-image-label"><span>Track Events</span><strong>200m Running</strong></div>
           </div>
-          <div class="card-header">
-            <span class="event-emoji">👟</span>
+          <div class="sports-card-topline">
+            <span class="sports-card-icon" aria-hidden="true">TR</span>
+            <span class="sports-category-tag sports-category-tag--track">Track</span>
+          </div>
+          <div class="card-header sports-card-header">
             <div class="card-header-info">
               <h3>200m Running</h3>
-              <span class="card-category sports">Outdoor Games</span>
+              <span class="card-category sports">Track Events</span>
             </div>
           </div>
           <div class="card-body">
-            <p>Join the exciting 200m running tournament for women.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Track events as per rules</li>
-              </ul>
+            <p>Middle sprint event testing acceleration, lane discipline, and finish speed.</p>
+            <div class="sports-meta-row">
+              <span class="sports-chip">Eligibility: Men &amp; Women</span>
+              <span class="sports-chip">Format: Individual</span>
             </div>
           </div>
-          <div class="card-footer">
+          <div class="card-footer sports-card-footer">
             <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>⚡ Track</span>
+              <span>Schedule TBA</span>
+              <span>Men &amp; Women</span>
+              <span>Track Event</span>
             </div>
-            <a  target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLScpA37HcwHLwdetvYkApsJQnBd0hlod9QuDONiuBSpOCqMkWg/viewform" class="register-link">Register →</a>
+            <div class="sports-actions" aria-label="200m Running registration options">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeax__Df-9FWr8XWfdrwOYQaYrKp8vbT4lIupFpj11uSJ16vg/viewform" target="_blank" class="register-link" data-register-label="Register Men">Register Men</a>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScpA37HcwHLwdetvYkApsJQnBd0hlod9QuDONiuBSpOCqMkWg/viewform" target="_blank" class="register-link" data-register-label="Register Women">Register Women</a>
+            </div>
           </div>
+        </article>
+        <div class="events-empty-state" id="eventsEmpty" hidden>
+          <p class="events-empty-state__eyebrow">No matches found</p>
+          <h3>Try another search or category</h3>
+          <p>Clear the search field or switch filters to view more About Anweshane - 2K26 events.</p>
+          <button class="btn btn-outline" type="button" id="clearEventSearch">Reset filters</button>
         </div>
-        <!-- Event: Long Jump (Women) -->
-        <div class="event-full-card" data-category="sports">
-          <div class="card-banner">
-            <img loading="lazy" src="images/Screenshot 2026-04-16 213131.png" alt="Long Jump" class="card-banner-img">
-            <div class="card-banner-overlay"></div>
-          </div>
-          <div class="card-header">
-            <span class="event-emoji">🏃</span>
-            <div class="card-header-info">
-              <h3>Long Jump</h3>
-              <span class="card-category sports">Outdoor Games</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <p>Show your speed, balance, and strength in the women's long jump competition.</p>
-            <div class="event-rules">
-              <h4 class="rules-title">📋 Rules</h4>
-              <ul class="rules-list">
-                <li>Open for women only</li>
-                <li>Individual participation only</li>
-                <li>Participants must follow event instructions</li>
-                <li>Decision of judges will be final</li>
-              </ul>
-            </div>
-          </div>
-          <div class="card-footer">
-            <div class="event-details">
-              <span>📅 TBA</span>
-              <span>👥 Women</span>
-              <span>🏅 Individual</span>
-            </div>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdnb7MY5E8IQFzYVj7GBnF9A6uI1vgs5YM-pb6-NCNTD3En1g/viewform" target="_blank" class="register-link">Register →</a>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Structural refactor: registration guidance separates actionable states from long event cards. -->
+  <section class="registration-guide section" id="registrationGuide" aria-labelledby="registrationGuideTitle">
+    <div class="container">
+      <div class="registration-guide__grid">
+        <div>
+          <p class="events-kicker">Registration Guide</p>
+          <h2 id="registrationGuideTitle">Register with confidence</h2>
+          <p>Use the badges on each card to identify whether registration is online, offline, pending, or awaiting schedule confirmation.</p>
+        </div>
+        <div class="registration-guide__steps" aria-label="Registration steps">
+          <article class="guide-step">
+            <span class="guide-step__number">01</span>
+            <h3>Choose an event</h3>
+            <p>Search or filter by technical, cultural, or sports categories, then open the rules before registering.</p>
+          </article>
+          <article class="guide-step">
+            <span class="guide-step__number">02</span>
+            <h3>Check team format</h3>
+            <p>Confirm the day, duration, team size, eligibility, and cultural participation limit before submitting.</p>
+          </article>
+          <article class="guide-step">
+            <span class="guide-step__number">03</span>
+            <h3>Register online or offline</h3>
+            <p>Active links open the official form. Offline events should be registered through the fest desk or coordinator.</p>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
+  <section class="cta-section events-final-cta" aria-labelledby="finalCtaTitle">
     <div class="container">
 
       <!-- Free Registration Banner -->
@@ -1429,15 +1113,15 @@
           <div class="free-banner-glow"></div>
           <div class="free-banner-shimmer"></div>
           <div class="free-banner-content">
-            <span class="free-banner-sparkle">✦</span>
-            <span class="free-banner-icon">🎉</span>
+            <span class="free-banner-sparkle">Live</span>
+            <span class="free-banner-icon">Celebrate</span>
             <span class="free-banner-text">
               <span class="free-word">FREE</span> REGISTRATION
             </span>
-            <span class="free-banner-icon">🎉</span>
-            <span class="free-banner-sparkle">✦</span>
+            <span class="free-banner-icon">Join In</span>
+            <span class="free-banner-sparkle">Now</span>
           </div>
-          <div class="free-banner-subtitle">Zero Entry Fee • All Events • Max 3 Cultural Events Per Participant</div>
+          <div class="free-banner-subtitle">Zero Entry Fee | All Events | Max 3 Cultural Events Per Participant</div>
           <div class="free-banner-particles">
             <span class="fb-particle"></span>
             <span class="fb-particle"></span>
@@ -1450,53 +1134,53 @@
       </div>
 
       <div class="cta-box">
-        <h2>Spots are limited! <span class="gradient-text">Register Now!</span></h2>
-        <p>Select any event above and click "Register" to secure your place. Don't miss out on Anweshane-26 2026!</p>
-        <a href="#eventsGrid" class="btn btn-primary">Browse Events ↑</a>
+        <h2 id="finalCtaTitle">Spots are limited! <span class="gradient-text">Register Now!</span></h2>
+        <p>Select an event above, review its rules, and use the correct online or offline registration path for About Anweshane - 2K26.</p>
+        <a href="#explore-events" class="btn btn-primary">Browse Events</a>
       </div>
     </div>
   </section>
+</main>
 
   <!-- Footer -->
-  <footer class="footer" id="contact">
+  <footer class="footer footer--events" id="contact">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo-wrap">
             <img loading="lazy" src="https://bce.org.in/wp-content/uploads/2019/08/logo-1.jpg" alt="BCE Logo" class="footer-logo">
-            <span class="footer-name">Anweshane-26</span>
+            <span class="footer-name">About Anweshane - 2K26</span>
           </div>
-          <p>The Annual Technical & Cultural Fest of Bahubali College of Engineering, Gommatanagar, Shravanabelagola 573 135, Hassan District, Karnataka.</p>
+          <p>The annual technical, cultural, and sports fest of Bahubali College of Engineering, Gommatanagar, Shravanabelagola 573135, Hassan District, Karnataka.</p>
           <div class="footer-social">
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="Twitter">🐦</a>
-            <a href="#" aria-label="LinkedIn">💼</a>
+            <a href="https://bce.org.in/" target="_blank" rel="noopener noreferrer" aria-label="Official BCE website">BCE Website</a>
+            <a href="#explore-events" aria-label="Browse About Anweshane - 2K26 events">Events</a>
+            <a href="#registrationGuide" aria-label="Read registration guide">Registration Guide</a>
           </div>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
           <a href="index.html">Home</a>
           <a href="index.html#about">About</a>
-          <a href="events.html">Events & Register</a>
+          <a href="#explore-events">Events & Register</a>
         </div>
         <div class="footer-col">
           <h4>Events</h4>
-          <a href="events.html">Technical</a>
-          <a href="events.html">Cultural</a>
-          <a href="events.html">Sports</a>
-          <a href="events.html">Workshops</a>
+          <a href="#category-tech">Technical</a>
+          <a href="#category-cultural">Cultural</a>
+          <a href="#category-sports">Sports</a>
+          <a href="#registrationGuide">Registration Guide</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a href="https://bce.org.in/" target="_blank">BCE Website</a>
+          <a href="https://bce.org.in/" target="_blank" rel="noopener noreferrer">BCE Website</a>
           <a href="mailto:info@bce.org.in">info@bce.org.in</a>
           <a href="tel:+918176282756">+91 8176-282756</a>
-          <a>K-CET Code: E070</a>
+          <span>K-CET Code: E070</span>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 Anweshane-26 — Bahubali College of Engineering. Developed<span class="heart"></span> by <a href="https://yash359am.github.io/My_Portfolio/" target="_blank" class="student-link">Yashodhar Naik</a> and <a href="#" target="_blank" class="student-link">Sushmitha K R     4th sem AIML</a></p>
+        <p>&copy; 2026 About Anweshane - 2K26 - Bahubali College of Engineering. Developed by <a href="https://yash359am.github.io/My_Portfolio/" target="_blank" rel="noopener noreferrer" class="student-link">Yashodhar Naik</a> and <span class="student-link student-link--static">Sushmitha K R, 4th Sem AIML</span>.</p>
       </div>
     </div>
   </footer>
@@ -1505,24 +1189,27 @@
   <!-- Bottom Navigation (Mobile Only) -->
   <nav class="bottom-nav">
     <a href="index.html" class="bottom-nav-item">
-      <span class="icon">🏠</span>
+      <span class="icon" aria-hidden="true">Home</span>
       <span class="label">Home</span>
     </a>
-    <a href="events.html" class="bottom-nav-item active">
-      <span class="icon">📅</span>
+    <a href="#explore-events" class="bottom-nav-item active" aria-current="page">
+      <span class="icon" aria-hidden="true">Events</span>
       <span class="label">Events</span>
     </a>
   </nav>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top">Top</button>
 
   <!-- GSAP CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <!-- Lenis Smooth Scroll -->
   <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
-  <!-- Motion Graphics Background Canvas -->
-  <script type="module" src="js/bg-canvas.js"></script>
-  <script type="module" src="js/bg-paths.js"></script>
+  <!-- Events page now uses cinematic video background as the single motion system. -->
   <script type="module" src="js/main.js"></script>
   <script type="module" src="js/events.js"></script>
 </body>
 </html>
+
+
+

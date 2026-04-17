@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Tug of war team event</title>
+  <desc id="desc">Premium illustrated banner showing two teams pulling a rope.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="1" stop-color="#3b2716"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <path d="M0 315c180-70 400-40 800-90v225H0z" fill="#f6b93b" opacity=".12"/>
+  <path d="M120 218c170 24 375 24 560 0" fill="none" stroke="#ffe29a" stroke-width="16" stroke-linecap="round"/>
+  <g fill="#67e8f9">
+    <circle cx="190" cy="146" r="28"/>
+    <circle cx="260" cy="156" r="28"/>
+    <circle cx="330" cy="166" r="28"/>
+  </g>
+  <g fill="#f6b93b">
+    <circle cx="610" cy="146" r="28"/>
+    <circle cx="540" cy="156" r="28"/>
+    <circle cx="470" cy="166" r="28"/>
+  </g>
+  <g stroke="#ffffff" stroke-opacity=".8" stroke-width="12" stroke-linecap="round">
+    <path d="M184 178l-34 76"/>
+    <path d="M256 188l-34 78"/>
+    <path d="M326 198l-36 76"/>
+    <path d="M616 178l34 76"/>
+    <path d="M544 188l34 78"/>
+    <path d="M474 198l36 76"/>
+  </g>
+  <text x="52" y="384" fill="#ffffff" font-family="Arial, sans-serif" font-size="46" font-weight="800">Tug of War</text>
+  <text x="52" y="416" fill="#ffd9a3" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">GROUP GAMES</text>
+</svg>

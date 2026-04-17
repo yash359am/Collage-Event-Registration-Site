@@ -1,4 +1,4 @@
-
+﻿
 // Global Error Boundary
 window.addEventListener("error", function (e) {
     // Suppress console errors per performance specs
@@ -8,7 +8,7 @@ window.addEventListener("unhandledrejection", function (e) {
     e.preventDefault();
 });
 /* ========================================
-   ANVESHANE — Modern Design & Animation System
+   About Anweshane - 2K26 Modern Design & Animation System
    Powered by GSAP, ScrollTrigger & Lenis
    Performance-Optimized Build
    ======================================== */
@@ -34,11 +34,11 @@ function initLenis() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: 'vertical',
       gestureDirection: 'vertical',
-      smoothTouch: false, // Disable on touch — major source of mobile lag
+      smoothTouch: false, // Disable on touch to avoid mobile lag.
       touchMultiplier: 2,
     });
 
-    // Single unified RAF loop (was doubled before — caused jank)
+    // Single unified RAF loop; a duplicate loop caused scroll jank before.
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
@@ -55,8 +55,16 @@ function initLenis() {
   }
 }
 
-// ========= Page Loader — Bulletproof Dismissal =========
+// ========= Page Loader - Bulletproof Dismissal =========
 let loaderDismissed = false;
+const loaderStartedAt = performance.now();
+const LOADER_MIN_VISIBLE_MS = 4200;
+
+function requestLoaderDismiss() {
+  const elapsed = performance.now() - loaderStartedAt;
+  const remaining = Math.max(0, LOADER_MIN_VISIBLE_MS - elapsed);
+  setTimeout(dismissLoader, remaining);
+}
 
 function dismissLoader() {
   if (loaderDismissed) return;
@@ -96,20 +104,19 @@ function dismissLoader() {
 
 // Dismiss on window load
 window.addEventListener('load', () => {
-  dismissLoader();
+  requestLoaderDismiss();
 });
 
 // Safety net #1: DOM ready (in case load event already fired)
 if (document.readyState === 'complete') {
-  dismissLoader();
+  requestLoaderDismiss();
 } else {
   document.addEventListener('DOMContentLoaded', () => {
-    // Give a brief moment for scripts to init
-    setTimeout(dismissLoader, 800);
+    requestLoaderDismiss();
   });
 }
 
-// Safety net #2: Force dismiss after 4 seconds no matter what
+// Safety net #2: Force dismiss after 7.5 seconds no matter what
 setTimeout(() => {
   if (!loaderDismissed) {
     console.warn('Force-dismissing loader after timeout');
@@ -123,12 +130,17 @@ setTimeout(() => {
     initLenis();
     safeInit();
   }
-}, 4000);
+}, 7500);
 
 // ========= Safe Init Wrapper =========
 function safeInit() {
+  try { applyAIMLPolish(); } catch(e) { console.warn('AIML polish init error:', e); }
   try { initAnimations(); } catch(e) { console.warn('Animation init error:', e); }
   try { initCustomCursor(); } catch(e) { console.warn('Cursor init error:', e); }
+}
+
+function applyAIMLPolish() {
+  // Intentionally left empty: compact category badges were removed for cleaner card headers.
 }
 
 // ========= Navbar Scroll Effect =========
@@ -195,7 +207,6 @@ function initAnimations() {
   initMagneticButtons();
   initTiltEffect();
   animateFloatingElements();
-  initAmbientMotion();
 }
 
 // ========= Scroll Progress Bar =========
@@ -231,79 +242,62 @@ function splitTextCharacters(selector) {
 
 // ========= Hero Animations =========
 function animateHero() {
-  const heroLines = document.querySelectorAll('.hero-title .line-inner');
-  if (heroLines.length === 0) return;
+  const hero = document.querySelector('.hero--aiml');
+  if (!hero) return;
 
-  // Split the ANVESHANE title into characters
-  const anvTitle = document.getElementById('anveshaneTitle');
-  // Only split if it's the hero title (not events page)
-  if (anvTitle && anvTitle.closest('.hero-title')) {
-    splitTextCharacters('#anveshaneTitle');
-  }
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-  // Hero Background Entry
-  gsap.from('.hero-bg', {
-    scale: 1.2,
+  tl.from('.hero-bg', {
+    scale: 1.06,
     opacity: 0,
-    duration: 2.5,
-    ease: 'power3.out'
-  });
-
-  // Hero Content Entry
-  const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
-
-  tl.from('.hero-badge', {
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out'
+    duration: 1.8
   })
-  .from('.hero-title .line:nth-child(1) .line-inner', {
-    y: 100,
-    skewY: 10,
+  .from('.hero-eyebrow', {
+    y: 24,
     opacity: 0,
-    duration: 1.2,
-  }, '-=0.8')
-  .from('#anveshaneTitle span', {
-    y: 120,
-    rotateX: -90,
-    skewX: 20,
-    opacity: 0,
-    duration: 1.8,
-    stagger: 0.08,
-    ease: 'expo.out'
-  }, '-=1')
-  .from('.hero-title .line:nth-child(3) .line-inner', {
-    y: 50,
-    skewY: 5,
-    opacity: 0,
-    duration: 1
+    duration: 0.7
   }, '-=1.2')
-  .from('.hero-description', {
+  .from('.hero-title', {
+    y: 42,
+    opacity: 0,
+    duration: 0.9
+  }, '-=0.45')
+  .from('.hero-subtitle, .hero-description', {
+    y: 22,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.12
+  }, '-=0.42')
+  .from('.hero-cta .btn, .hero-highlight', {
+    y: 18,
+    opacity: 0,
+    duration: 0.55,
+    stagger: 0.08
+  }, '-=0.32')
+  .from('.hero-stat', {
+    y: 26,
+    opacity: 0,
+    duration: 0.55,
+    stagger: 0.08
+  }, '-=0.2')
+  .from('.hero-visual-card', {
     y: 30,
     opacity: 0,
-    duration: 1
-  }, '-=0.8')
-  .from('.hero-cta .btn', {
-    scale: 0.8,
+    scale: 0.96,
+    duration: 0.9
+  }, '-=0.82')
+  .from('.hero-visual-badge', {
+    y: 18,
     opacity: 0,
-    duration: 0.8,
-    stagger: 0.15,
-    ease: 'back.out(1.7)'
-  }, '-=0.6')
-  .from('.hero-stats', {
-    y: 40,
-    opacity: 0,
-    duration: 1
-  }, '-=0.6');
+    duration: 0.5,
+    stagger: 0.1
+  }, '-=0.4');
 
   if (!hasScrollTrigger) return;
 
-  // Scroll-triggered Parallax
   gsap.to('.hero-bg', {
-    scale: 1.15,
-    yPercent: 30,
-    filter: 'blur(8px)',
+    scale: 1.08,
+    yPercent: 16,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
@@ -313,10 +307,9 @@ function animateHero() {
     }
   });
 
-  // Fade Hero Content on Scroll
   gsap.to('.hero-inner', {
-    y: -100,
-    opacity: 0,
+    y: -40,
+    opacity: 0.25,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
@@ -326,9 +319,8 @@ function animateHero() {
     }
   });
 
-  // Robot Floating Parallax
-  gsap.to('.hero-robot', {
-    y: -50,
+  gsap.to('.hero-visual-card', {
+    y: -24,
     ease: 'none',
     scrollTrigger: {
       trigger: '.hero',
@@ -408,9 +400,10 @@ function animateAbout() {
   });
 }
 
-// ========= Event Cards — Lightweight Reveal =========
+// ========= Event Cards - Lightweight Reveal =========
 function animateEventCards() {
-  const cards = document.querySelectorAll('.event-card, .event-full-card');
+  const cardSelector = document.querySelector('.events-page') ? '.event-card' : '.event-card, .event-full-card';
+  const cards = document.querySelectorAll(cardSelector);
   if (cards.length === 0) return;
 
   // Use IntersectionObserver for a smoother reveal (less overhead than ScrollTrigger per card)
@@ -460,27 +453,15 @@ function animateEventCards() {
 
 // ========= Floating Elements Animation =========
 function animateFloatingElements() {
-  const heroBadge = document.querySelector('.hero-badge');
-  if (heroBadge) {
-    gsap.to(heroBadge, {
-      y: -10,
-      duration: 2,
+  document.querySelectorAll('.hero-visual-badge').forEach((badge, index) => {
+    gsap.to(badge, {
+      y: index % 2 === 0 ? -8 : 8,
+      duration: 2.8 + index * 0.4,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut'
     });
-  }
-
-  const robotTag = document.querySelector('.robot-welcome-tag');
-  if (robotTag) {
-    gsap.to(robotTag, {
-      y: -8,
-      duration: 1.5,
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut'
-    });
-  }
+  });
 }
 
 // ========= Custom Cursor (Desktop Only) =========
@@ -506,7 +487,7 @@ function initCustomCursor() {
   const interactives = [
     { selector: 'a, button, .btn', label: '' },
     { selector: '.event-card, .event-full-card', label: 'VIEW' },
-    { selector: '.hero-robot', label: 'HELLO!' },
+    { selector: '.hero-visual-card', label: 'AIML' },
     { selector: '.nav-logo, .footer-logo', label: 'BCE' }
   ];
 
@@ -667,92 +648,5 @@ function animatePageHeader() {
   }
 }
 
-// ========= Ambient Aura Motion — Performance Optimized =========
-function initAmbientMotion() {
-  const orbs = document.querySelectorAll('.aura-orb');
-  if (orbs.length === 0) return;
 
-  // 1. Gentle organic drifting (base layer)
-  orbs.forEach((orb, i) => {
-    gsap.to(orb, {
-      x: 'random(-60, 60)',
-      y: 'random(-60, 60)',
-      duration: gsap.utils.random(18, 28),
-      repeat: -1,
-      yoyo: true,
-      ease: 'sine.inOut',
-      delay: i * 1.5
-    });
-  });
 
-  if (!hasScrollTrigger) return;
-
-  // 2. Scroll-Triggered Parallax (reduced intensity)
-  const moveSpeeds = [100, -120, 60, -80, 140];
-  const scaleSpeeds = [1.1, 0.9, 1.05, 0.95, 1.15];
-
-  orbs.forEach((orb, i) => {
-    gsap.to(orb, {
-      y: moveSpeeds[i] || 60,
-      scale: scaleSpeeds[i] || 1.05,
-      opacity: gsap.utils.random(0.05, 0.2),
-      scrollTrigger: {
-        trigger: 'body',
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: 2,
-      }
-    });
-  });
-
-  // 3. Subtle Hue Shift on Scroll
-  gsap.to(orbs, {
-    filter: 'blur(150px) hue-rotate(20deg)',
-    scrollTrigger: {
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: 3,
-    }
-  });
-
-  // 4. Mouse Parallax — Debounced for performance (desktop only)
-  if (window.innerWidth > 768) {
-    let mouseX = 0.5, mouseY = 0.5;
-    let mouseRAF;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX / window.innerWidth - 0.5;
-      mouseY = e.clientY / window.innerHeight - 0.5;
-
-      if (!mouseRAF) {
-        mouseRAF = requestAnimationFrame(() => {
-          orbs.forEach((orb, i) => {
-            const factorX = (i + 1) * 12;
-            const factorY = (i + 1) * 10;
-            
-            gsap.to(orb, {
-              xPercent: mouseX * factorX,
-              yPercent: mouseY * factorY,
-              duration: 2.5,
-              ease: 'power2.out'
-            });
-          });
-          mouseRAF = null;
-        });
-      }
-    }, { passive: true });
-  }
-
-  // 5. Global Parallax
-  gsap.to('.ambient-aura', {
-    yPercent: 10,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      scrub: true
-    }
-  });
-}

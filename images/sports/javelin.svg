@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Javelin throw athlete event</title>
+  <desc id="desc">Premium illustrated banner showing a javelin throw.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081426"/>
+      <stop offset="1" stop-color="#14364f"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <line x1="150" y1="120" x2="690" y2="65" stroke="#ffe29a" stroke-width="8" stroke-linecap="round"/>
+  <polygon points="690,65 654,50 660,83" fill="#ffe29a"/>
+  <path d="M130 318c170-70 350-52 610-84" fill="none" stroke="#67e8f9" stroke-width="18" stroke-linecap="round" opacity=".22"/>
+  <g stroke="#f6b93b" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="290" cy="170" r="26" fill="#f6b93b" stroke="none"/>
+    <path d="M292 204l38 82"/>
+    <path d="M316 236l116-66"/>
+    <path d="M328 284l-74 72"/>
+    <path d="M330 286l94 58"/>
+  </g>
+  <text x="52" y="384" fill="#ffffff" font-family="Arial, sans-serif" font-size="46" font-weight="800">Javelin Throw</text>
+  <text x="52" y="416" fill="#9ff7d0" font-family="Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="3">FIELD EVENTS</text>
+</svg>
