@@ -1611,10 +1611,41 @@
     flex: 1 1 auto;
   }
 
+  .events-hero__actions {
+    flex-direction: column;
+  }
+
+  .events-hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .event-jump-links {
     max-height: 8.5rem;
     overflow: auto;
     padding-bottom: 0.25rem;
+  }
+
+  .events-quick-jumps,
+  .event-jump-links,
+  .event-status-legend {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.2rem;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .events-quick-jumps::-webkit-scrollbar,
+  .event-jump-links::-webkit-scrollbar,
+  .event-status-legend::-webkit-scrollbar {
+    display: none;
+  }
+
+  .jump-chip,
+  .legend-chip,
+  .hero-pill {
+    white-space: nowrap;
   }
 
   .sports-rule-options {
@@ -1636,6 +1667,29 @@
   .events-hero__title-line {
     font-size: clamp(2.25rem, 12vw, 3.25rem);
     line-height: 1.04;
+  }
+
+  .events-hero__presenter {
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+  }
+
+  .events-toolbar__copy h2,
+  .registration-guide h2,
+  .cta-box h2 {
+    font-size: clamp(1.9rem, 9.6vw, 2.5rem);
+    line-height: 1.02;
+  }
+
+  .events-hero__panel,
+  .events-toolbar,
+  .registration-guide__grid {
+    border-radius: 22px;
+  }
+
+  .hero-pill {
+    width: 100%;
+    justify-content: center;
   }
 
   .hero-stat-card {
@@ -1667,6 +1721,71 @@
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+}
+
+/* Phone-first events tuning: keep discovery controls readable and avoid stacked desktop chrome. */
+@media (max-width: 768px) {
+  .events-hero {
+    padding-top: 6.4rem;
+    padding-bottom: 2.75rem;
+  }
+
+  .events-hero__grid {
+    gap: 1.25rem;
+  }
+
+  .events-hero__panel {
+    order: 2;
+  }
+
+  .events-hero__subtitle {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .events-hero__highlights {
+    margin-top: 1.25rem;
+  }
+
+  .events-toolbar,
+  .registration-guide__grid,
+  .events-final-cta .cta-box {
+    padding: 1.15rem;
+  }
+
+  .events-toolbar__copy p:last-child,
+  .registration-guide p {
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .event-search input {
+    min-height: 3.15rem;
+    padding: 0 1rem;
+  }
+
+  .event-full-card,
+  .sports-official-card,
+  .sports-rules-card {
+    min-width: 0;
+  }
+
+  .card-header {
+    gap: 0.85rem;
+  }
+
+  .card-body p {
+    line-height: 1.6;
+  }
+
+  .card-footer {
+    gap: 0.85rem;
+  }
+
+  .event-details {
+    justify-content: center;
   }
 }
 
