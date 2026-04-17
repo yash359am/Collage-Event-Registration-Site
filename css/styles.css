@@ -569,6 +569,17 @@ img {
   will-change: transform, scale;
 }
 
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 82%;
+  transform: scale(1.16);
+  filter: saturate(0.98) brightness(0.54) contrast(1.04);
+}
+
 .hero-bg::before {
   content: '';
   position: absolute;
@@ -3443,13 +3454,47 @@ body::before {
 
 .hero-bg::before {
   background:
-    linear-gradient(180deg, rgba(4, 8, 22, 0.52) 0%, rgba(4, 8, 22, 0.12) 100%),
+    linear-gradient(90deg, rgba(4, 8, 22, 0.84) 0%, rgba(4, 8, 22, 0.58) 34%, rgba(4, 8, 22, 0.28) 58%, rgba(4, 8, 22, 0.54) 100%),
+    linear-gradient(180deg, rgba(4, 8, 22, 0.56) 0%, rgba(4, 8, 22, 0.12) 42%, rgba(4, 8, 22, 0.56) 100%),
     radial-gradient(circle at 78% 22%, rgba(34, 211, 238, 0.18), transparent 24rem);
 }
 
 .hero-bg::after {
   background:
-    linear-gradient(180deg, rgba(4, 8, 22, 0.88) 0%, rgba(4, 8, 22, 0.28) 24%, rgba(4, 8, 22, 0.44) 78%, #040816 100%);
+    linear-gradient(180deg, rgba(4, 8, 22, 0.72) 0%, rgba(4, 8, 22, 0.18) 24%, rgba(4, 8, 22, 0.32) 78%, #040816 100%);
+}
+
+@media (max-width: 900px) {
+  .hero-bg-video {
+    object-position: 54% 80%;
+    transform: scale(1.14);
+    filter: saturate(1) brightness(0.56) contrast(1.04);
+  }
+}
+
+/* Tune the college hero video separately for portrait screens so the framing stays intentional on phones. */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-position: 54% center;
+  }
+
+  .hero-bg-video {
+    object-position: 53% 72%;
+    transform: scale(1.02);
+    filter: saturate(1.04) brightness(0.62) contrast(1.02);
+  }
+
+  .hero-bg::before {
+    background:
+      linear-gradient(180deg, rgba(4, 8, 22, 0.44) 0%, rgba(4, 8, 22, 0.1) 34%, rgba(4, 8, 22, 0.38) 100%),
+      radial-gradient(circle at 24% 18%, rgba(34, 211, 238, 0.1), transparent 14rem),
+      radial-gradient(circle at 82% 16%, rgba(139, 92, 246, 0.12), transparent 14rem);
+  }
+
+  .hero-bg::after {
+    background:
+      linear-gradient(180deg, rgba(4, 8, 22, 0.34) 0%, rgba(4, 8, 22, 0.04) 24%, rgba(4, 8, 22, 0.18) 66%, #040816 100%);
+  }
 }
 
 .hero-inner {
@@ -4189,6 +4234,16 @@ select {
   .hero {
     padding-top: calc(82px + 6px);
     padding-bottom: 1rem;
+  }
+
+  .hero-bg {
+    background-position: 50% center;
+  }
+
+  .hero-bg-video {
+    object-position: 50% 68%;
+    transform: scale(0.98);
+    filter: saturate(1.06) brightness(0.66) contrast(1.01);
   }
 
   .hero-inner {
