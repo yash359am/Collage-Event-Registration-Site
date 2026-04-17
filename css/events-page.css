@@ -2101,6 +2101,55 @@ body.events-canvas-active .bg-canvas {
   box-shadow: 0 18px 38px rgba(139, 92, 246, 0.22);
 }
 
+/* Keep registration labels centered consistently on the events page.
+   This intentionally overrides legacy global card-link spacing rules. */
+.events-directory .event-full-card .register-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  line-height: 1.25;
+  gap: 0;
+}
+
+.events-directory .event-full-card .register-link:hover {
+  gap: 0;
+}
+
+/* Sports footer layout fix:
+   force stacked footer content so status chips and registration actions never compress each other. */
+.events-directory .sports-official-card .card-footer {
+  display: grid;
+  align-items: stretch;
+  gap: 0.9rem;
+}
+
+.events-directory .sports-official-card .card-footer .event-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.events-directory .sports-official-card .card-footer .sports-actions {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .events-directory .sports-official-card .card-footer .event-details {
+    justify-content: center;
+  }
+
+  .events-directory .sports-official-card .card-footer .sports-actions .register-link,
+  .events-directory .sports-official-card .card-footer .sports-actions .sports-action-note,
+  .events-directory .sports-official-card .card-footer .sports-actions .sports-offline-badge {
+    flex: 1 1 100%;
+  }
+}
+
 .register-link--offline,
 .sports-offline-badge {
   background: linear-gradient(135deg, rgba(192, 132, 252, 0.18), rgba(244, 114, 182, 0.18));
