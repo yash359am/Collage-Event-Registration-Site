@@ -14,19 +14,16 @@
     .page-loader {
       position: fixed; inset: 0; background: #030816; z-index: 10001;
       display: flex; align-items: center; justify-content: center;
-      contain: strict;
+      contain: strict; background: radial-gradient(circle at 50% 50%, #081226, #030816);
     }
-    .loader-fest-name {
-      font-family: serif; font-size: clamp(1.5rem, 8vw, 2.5rem);
-      font-weight: 900; background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    .hero--aiml { min-height: 100vh; background: #030816; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: var(--navy); }
+    .hero-bg::before {
+      content: ''; position: absolute; inset: -50%;
+      background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1), transparent 40%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1), transparent 40%);
+      filter: blur(60px); transform: translateZ(0);
     }
-    .navbar {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(3, 8, 22, 0.85); transition: transform 0.3s ease;
-      will-change: transform;
-    }
-    .hero--aiml { min-height: 100vh; background: #030816; position: relative; }
   </style>
 </head>
 <body class="dark-theme">
@@ -135,9 +132,6 @@
   <!-- Hero Section -->
   <section class="hero hero--aiml" id="hero">
     <div class="hero-bg" aria-hidden="true">
-      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-bg.jpeg" width="1920" height="1080">
-        <source src="images/college/1College-NEW.mp4" type="video/mp4">
-      </video>
     </div>
     <div class="hero-inner">
       <!-- Left: Hero Content -->
@@ -193,12 +187,6 @@
       <p class="section-subtitle">A celebration of innovation, talent, and the spirit of engineering at Bahubali College of Engineering, Shravanabelagola.</p>
       <div class="about-grid asymmetrical">
         <div class="about-content" data-hover-label="READ">
-          <div class="about-glass-backdrop"></div>
-          <div class="about-box-media" aria-hidden="true">
-            <video class="about-box-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-bg.jpeg">
-              <source src="images/college/1College-NEW.mp4" type="video/mp4">
-            </video>
-          </div>
           <h3>Where Ideas Come <span class="highlight">Alive</span></h3>
           <p>
             About Anweshane - 2K26 is the flagship annual college fest of Bahubali College of Engineering (BCE), designed for BCE students only. It celebrates our community with internal technical challenges, cultural showcases, and student-led workshops.

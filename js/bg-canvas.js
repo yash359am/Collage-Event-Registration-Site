@@ -29,23 +29,24 @@
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // ---- Config ----
+  const isMobile = window.innerWidth < 768;
   const CFG = {
-    nodeCount: isEventsPage ? 96 : 52,
-    connectDist: isEventsPage ? 235 : 165,
-    nodeSpeed: isEventsPage ? 0.38 : 0.24,
-    nodeRadius: isEventsPage ? 2.1 : 1.55,
-    lineOpacity: isEventsPage ? 0.22 : 0.09,
-    nodeOpacity: isEventsPage ? 0.76 : 0.46,
-    signalOpacity: isEventsPage ? 0.25 : 0.09,
-    beamCount: isEventsPage ? 7 : 2,
+    nodeCount: isMobile ? 18 : (isEventsPage ? 96 : 48),
+    connectDist: isMobile ? 120 : (isEventsPage ? 235 : 165),
+    nodeSpeed: isMobile ? 0.3 : (isEventsPage ? 0.38 : 0.24),
+    nodeRadius: isMobile ? 1.2 : (isEventsPage ? 2.1 : 1.55),
+    lineOpacity: isMobile ? 0.12 : (isEventsPage ? 0.22 : 0.09),
+    nodeOpacity: isMobile ? 0.5 : (isEventsPage ? 0.76 : 0.46),
+    signalOpacity: isMobile ? 0.1 : (isEventsPage ? 0.25 : 0.09),
+    beamCount: isMobile ? 1 : (isEventsPage ? 7 : 2),
     beamSpeed: prefersReducedMotion ? 0.45 : (isEventsPage ? 1.45 : 1.1),
-    interactionRadius: isEventsPage ? 270 : 190,
-    pointerLineOpacity: isEventsPage ? 0.48 : 0.24,
-    labelCount: isEventsPage ? 18 : 7,
-    starCount: isEventsPage ? 145 : 58,
-    droneCount: isEventsPage ? 11 : 4,
-    streakCount: isEventsPage ? 13 : 4,
-    cityTowers: isEventsPage ? 52 : 24,
+    interactionRadius: isMobile ? 120 : (isEventsPage ? 270 : 190),
+    pointerLineOpacity: isMobile ? 0.15 : (isEventsPage ? 0.48 : 0.24),
+    labelCount: isMobile ? 4 : (isEventsPage ? 18 : 7),
+    starCount: isMobile ? 40 : (isEventsPage ? 145 : 58),
+    droneCount: isMobile ? 2 : (isEventsPage ? 11 : 4),
+    streakCount: isMobile ? 3 : (isEventsPage ? 13 : 4),
+    cityTowers: isMobile ? 12 : (isEventsPage ? 52 : 24),
     palette: [
       { r: 56,  g: 189, b: 248 }, // blue
       { r: 34,  g: 211, b: 238 }, // cyan

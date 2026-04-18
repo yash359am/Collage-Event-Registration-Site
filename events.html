@@ -16,19 +16,16 @@
     .page-loader {
       position: fixed; inset: 0; background: #030816; z-index: 10001;
       display: flex; align-items: center; justify-content: center;
-      contain: strict;
+      contain: strict; background: radial-gradient(circle at 50% 50%, #081226, #030816);
     }
-    .loader-fest-name {
-      font-family: serif; font-size: clamp(1.5rem, 8vw, 2.5rem);
-      font-weight: 900; background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
-      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    .events-hero { min-height: 40vh; background: #030816; position: relative; overflow: hidden; }
+    .sci-fi-scene { position: absolute; inset: 0; background: var(--navy); z-index: 0; }
+    .sci-fi-scene::before {
+      content: ''; position: absolute; inset: -50%;
+      background: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1), transparent 40%),
+                  radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1), transparent 40%);
+      filter: blur(60px); transform: translateZ(0);
     }
-    .navbar {
-      position: fixed; top: 0; width: 100%; z-index: 1000;
-      background: rgba(3, 8, 22, 0.85); transition: transform 0.3s ease;
-      will-change: transform;
-    }
-    .events-hero { min-height: 40vh; background: #030816; position: relative; }
   </style>
 </head>
 <body class="dark-theme">
@@ -136,11 +133,6 @@
   </nav>
   <main id="mainContent" class="events-page">
     <div class="sci-fi-scene" aria-hidden="true">
-      <!-- Real college-fest ambience: college video provided by the event organizer. -->
-      <video class="cinematic-bg-video" autoplay muted loop playsinline preload="metadata"
-        poster="images/hero-bg.jpeg" width="1920" height="1080">
-        <source src="images/college/1College-NEW.mp4" type="video/mp4">
-      </video>
       <div class="cinematic-grade"></div>
     </div>
     <!-- Structural refactor: hero + discovery controls give the page a clear premium entry point. -->
