@@ -2364,7 +2364,7 @@ img {
 .page-loader::after {
   content: '';
   position: absolute;
-  inset: 7vh 7vw;
+  inset: 9vh 9vw;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 32px;
   opacity: 0.75;
@@ -2374,9 +2374,9 @@ img {
 .loader-shell {
   position: relative;
   z-index: 2;
-  width: min(92vw, 860px);
-  padding: clamp(2rem, 5vw, 3.5rem);
-  border-radius: 34px;
+  width: min(88vw, 760px);
+  padding: clamp(1.7rem, 4vw, 2.8rem);
+  border-radius: 30px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background:
     radial-gradient(circle at top center, rgba(255, 255, 255, 0.08), transparent 52%),
@@ -2409,7 +2409,7 @@ img {
 }
 
 .loader-shell::before {
-  inset: 1rem;
+  inset: 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.07);
   background:
     linear-gradient(135deg, rgba(103, 232, 249, 0.06), transparent 32%),
@@ -2417,7 +2417,7 @@ img {
 }
 
 .loader-shell::after {
-  inset: auto 1.1rem 1.1rem 1.1rem;
+  inset: auto 0.95rem 0.95rem 0.95rem;
   height: 3px;
   border-radius: 999px;
   background: linear-gradient(90deg, #ffd166, #67e8f9, #c084fc);
@@ -2438,9 +2438,9 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.5rem;
-  margin-bottom: 1.2rem;
-  padding: 0.55rem 1rem;
+  min-height: 2.25rem;
+  margin-bottom: 1rem;
+  padding: 0.48rem 0.9rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
@@ -2457,7 +2457,7 @@ img {
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.55rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.85rem;
 }
 
 .loader-meta span {
@@ -2477,15 +2477,15 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.4rem 1rem;
-  margin-bottom: 0.9rem;
+  min-height: 2.45rem;
+  padding: 0.32rem 0.9rem;
+  margin-bottom: 0.7rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.03);
   color: rgba(255, 255, 255, 0.62);
   font-family: var(--font-accent);
-  font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  font-size: clamp(0.82rem, 1.35vw, 1rem);
   font-weight: 800;
   letter-spacing: 0.4em;
   text-transform: uppercase;
@@ -2497,34 +2497,34 @@ img {
   z-index: 1;
   margin: 0;
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 7vw, 4.8rem);
+  font-size: clamp(1.85rem, 6vw, 4.1rem);
   font-weight: 900;
   letter-spacing: clamp(0.02em, 0.4vw, 0.08em);
-  line-height: 1.04;
+  line-height: 1.02;
   color: #ffd166;
   text-wrap: balance;
   animation: loaderTitleColorCycle var(--loader-cycle) ease-in-out 1 forwards;
 }
 
 .loader-subtitle {
-  width: min(100%, 38rem);
-  margin: 1rem auto 0;
+  width: min(100%, 33rem);
+  margin: 0.8rem auto 0;
   color: rgba(233, 242, 255, 0.72);
-  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
-  line-height: 1.7;
+  font-size: clamp(0.9rem, 1.15vw, 1.02rem);
+  line-height: 1.6;
 }
 
 .loader-pillars {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.7rem;
-  margin-top: 1.25rem;
+  gap: 0.55rem;
+  margin-top: 1rem;
 }
 
 .loader-pillars span {
-  min-width: 6.5rem;
-  padding: 0.55rem 0.95rem;
+  min-width: 5.8rem;
+  padding: 0.48rem 0.85rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background:
@@ -2674,23 +2674,23 @@ img {
 
 @media (max-width: 640px) {
   .page-loader::after {
-    inset: 4vh 4vw;
+    inset: 5vh 5vw;
     border-radius: 24px;
   }
 
   .loader-shell {
-    width: min(94vw, 34rem);
-    padding: 1.6rem 1.2rem 1.9rem;
-    border-radius: 26px;
+    width: min(92vw, 31rem);
+    padding: 1.35rem 1rem 1.6rem;
+    border-radius: 24px;
   }
 
   .loader-shell::before {
-    inset: 0.8rem;
+    inset: 0.7rem;
     border-radius: 18px;
   }
 
   .loader-shell::after {
-    inset: auto 0.9rem 0.9rem 0.9rem;
+    inset: auto 0.75rem 0.75rem 0.75rem;
   }
 
   .loader-kicker {
@@ -2699,6 +2699,10 @@ img {
 
   .loader-mark {
     letter-spacing: 0.24em;
+  }
+
+  .loader-title {
+    font-size: clamp(1.65rem, 10vw, 2.85rem);
   }
 
   .loader-meta {
