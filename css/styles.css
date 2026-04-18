@@ -111,10 +111,13 @@ body::before {
 /* body::after grid removed — canvas bg-canvas.js handles motion graphics */
 
 /* Ambient Aura Background — GPU Optimized */
-a {
+a,
+button,
+.btn {
   text-decoration: none;
   color: inherit;
   transition: var(--transition-normal);
+  touch-action: manipulation;
 }
 
 ul,
@@ -125,6 +128,8 @@ ol {
 img {
   max-width: 100%;
   display: block;
+  height: auto;
+  aspect-ratio: attr(width) / attr(height);
 }
 
 /* ========= Utility Classes ========= */
@@ -141,7 +146,7 @@ img {
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
   font-weight: 800;
   text-align: center;
   margin-bottom: 16px;
@@ -149,6 +154,7 @@ img {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  will-change: transform, opacity;
 }
 
 .section-subtitle {
@@ -190,11 +196,11 @@ img {
 
 .glass-card {
   background: rgba(13, 27, 49, 0.95);
-  /* backdrop-filter removed for minimalist styling */
-  /* webkit-backdrop-filter removed */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--border-radius);
   transition: var(--transition-normal);
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 .glass-card:hover {
@@ -913,11 +919,10 @@ img {
   padding-bottom: 5px;
   letter-spacing: 8px;
   font-size: clamp(2rem, 5vw, 4.5rem);
-  /* Scaled down to prevent "NE" clip on 50% width containers */
   white-space: nowrap;
-  /* Keep the actual word Anveshane together */
   padding-right: 20px;
-  /* Provides internal breathing room so 'NE' doesn't get clipped by overflow:hidden wrappers */
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .hero-subtitle {

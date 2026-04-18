@@ -4,11 +4,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="About Anweshane - 2K26 - The Annual Technical & Cultural Fest of Bahubali College of Engineering, Shravanabelagola. Join us for exciting events, competitions, and workshops.">
   <title>About Anweshane - 2K26 | Bahubali College of Engineering</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="icon" href="images/branding/bce-logo.jpg" type="image/jpeg">
+  <style>
+    /* Critical Path CSS - Inlined for instant perceived load */
+    .page-loader {
+      position: fixed; inset: 0; background: #030816; z-index: 10001;
+      display: flex; align-items: center; justify-content: center;
+      contain: strict;
+    }
+    .loader-fest-name {
+      font-family: serif; font-size: clamp(1.5rem, 8vw, 2.5rem);
+      font-weight: 900; background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .navbar {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(3, 8, 22, 0.85); transition: transform 0.3s ease;
+      will-change: transform;
+    }
+    .hero--aiml { min-height: 100vh; background: #030816; position: relative; }
+  </style>
 </head>
 <body class="dark-theme">
   <a class="skip-link" href="#mainContent">Skip to main content</a>
@@ -85,7 +104,7 @@
       <!-- Left: Logo + College Info -->
       <div class="navbar-left">
         <a href="index.html" class="nav-brand">
-          <img loading="lazy" src="images/branding/bce-logo.jpg" alt="BCE Logo" class="nav-logo">
+          <img loading="lazy" src="images/branding/bce-logo.jpg" alt="BCE Logo" class="nav-logo" width="45" height="45">
         </a>
         <div class="college-info">
           <span class="college-line1">SSDJJP SANGHA (R)</span>
@@ -116,7 +135,7 @@
   <!-- Hero Section -->
   <section class="hero hero--aiml" id="hero">
     <div class="hero-bg" aria-hidden="true">
-      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-bg.jpeg">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-bg.jpeg" width="1920" height="1080">
         <source src="images/college/1College-NEW.mp4" type="video/mp4">
       </video>
     </div>
@@ -158,7 +177,7 @@
       <div class="hero-visual-card hero-visual-card--poster" id="heroVisual">
         <div class="hero-visual-orb hero-visual-orb--one"></div>
         <div class="hero-visual-orb hero-visual-orb--two"></div>
-        <img src="images/invitation-poster.jpeg" alt="Official About Anweshane - 2K26 invitation poster" class="hero-visual-art hero-visual-art--poster" loading="eager">
+        <img src="images/invitation-poster.jpeg" alt="Official About Anweshane - 2K26 invitation poster" class="hero-visual-art hero-visual-art--poster" loading="eager" width="600" height="850">
       </div>
     </div>
     <div class="scroll-indicator">

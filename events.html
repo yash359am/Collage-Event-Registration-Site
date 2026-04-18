@@ -4,13 +4,32 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="Browse technical, cultural, and sports events for About Anweshane - 2K26 at Bahubali College of Engineering. Review rules, compare formats, and register with confidence.">
   <meta name="theme-color" content="#030816">
   <title>Events & Registration | About Anweshane - 2K26</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/events-page.css">
   <link rel="icon" href="images/branding/bce-logo.jpg" type="image/jpeg">
+  <style>
+    /* Critical Path CSS - Inlined for instant perceived load */
+    .page-loader {
+      position: fixed; inset: 0; background: #030816; z-index: 10001;
+      display: flex; align-items: center; justify-content: center;
+      contain: strict;
+    }
+    .loader-fest-name {
+      font-family: serif; font-size: clamp(1.5rem, 8vw, 2.5rem);
+      font-weight: 900; background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .navbar {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(3, 8, 22, 0.85); transition: transform 0.3s ease;
+      will-change: transform;
+    }
+    .events-hero { min-height: 40vh; background: #030816; position: relative; }
+  </style>
 </head>
 <body class="dark-theme">
   <a class="skip-link" href="#mainContent">Skip to main content</a>
@@ -89,7 +108,7 @@
       <!-- Left: Logo + College Info -->
       <div class="navbar-left">
         <a href="index.html" class="nav-brand" aria-label="Bahubali College of Engineering Home">
-          <img loading="lazy" src="images/branding/bce-logo.jpg" alt="BCE Logo" class="nav-logo">
+          <img loading="lazy" src="images/branding/bce-logo.jpg" alt="BCE Logo" class="nav-logo" width="45" height="45">
         </a>
         <div class="college-info">
           <span class="college-line1">SSDJJP SANGHA (R)</span>
@@ -119,7 +138,7 @@
     <div class="sci-fi-scene" aria-hidden="true">
       <!-- Real college-fest ambience: college video provided by the event organizer. -->
       <video class="cinematic-bg-video" autoplay muted loop playsinline preload="metadata"
-        poster="images/hero-bg.jpeg">
+        poster="images/hero-bg.jpeg" width="1920" height="1080">
         <source src="images/college/1College-NEW.mp4" type="video/mp4">
       </video>
       <div class="cinematic-grade"></div>

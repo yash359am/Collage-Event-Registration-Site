@@ -149,11 +149,11 @@ let lastScrollY = 0;
 let scrollTicking = false;
 
 window.addEventListener('scroll', () => {
-  lastScrollY = window.scrollY;
   if (!scrollTicking) {
     requestAnimationFrame(() => {
       if (navbar) {
-        if (lastScrollY > 50) {
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > 50) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
