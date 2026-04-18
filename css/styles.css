@@ -3629,6 +3629,14 @@ body::before {
   transform: scale(1.01);
 }
 
+.hero-visual-art--poster {
+  object-fit: contain;
+  object-position: center top;
+  padding: 0.75rem;
+  filter: saturate(1.04) contrast(1.02);
+  transform: none;
+}
+
 .hero-visual-orb {
   position: absolute;
   border-radius: 50%;
@@ -3917,6 +3925,12 @@ body::before {
     object-position: 48% center;
   }
 
+  .hero-visual-art--poster {
+    object-fit: contain;
+    object-position: center top;
+    padding: 0.5rem;
+  }
+
   .hero-highlights {
     gap: 0.55rem;
   }
@@ -4111,6 +4125,10 @@ select {
 
   .hero-visual-card {
     min-height: 260px;
+  }
+
+  .hero-visual-art--poster {
+    padding: 0.35rem;
   }
 
   .cta-box {
