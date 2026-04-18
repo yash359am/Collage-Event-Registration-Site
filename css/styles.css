@@ -3604,6 +3604,20 @@ body::before {
   -webkit-backdrop-filter: blur(20px);
 }
 
+/* Poster variant keeps the invitation readable by removing excess overlays and giving it more room. */
+.hero-visual-card--poster {
+  min-height: 680px;
+  background: rgba(8, 14, 30, 0.84);
+}
+
+.hero-visual-card--poster::after {
+  background: linear-gradient(180deg, rgba(2, 6, 23, 0.06) 0%, rgba(2, 6, 23, 0.14) 100%);
+}
+
+.hero-visual-card--poster .hero-visual-orb {
+  display: none;
+}
+
 .hero-visual-card::after {
   content: "";
   position: absolute;
@@ -3632,7 +3646,7 @@ body::before {
 .hero-visual-art--poster {
   object-fit: contain;
   object-position: center top;
-  padding: 0.75rem;
+  padding: 0.35rem;
   filter: saturate(1.04) contrast(1.02);
   transform: none;
 }
@@ -3928,7 +3942,7 @@ body::before {
   .hero-visual-art--poster {
     object-fit: contain;
     object-position: center top;
-    padding: 0.5rem;
+    padding: 0.25rem;
   }
 
   .hero-highlights {
@@ -4128,7 +4142,7 @@ select {
   }
 
   .hero-visual-art--poster {
-    padding: 0.35rem;
+    padding: 0.15rem;
   }
 
   .cta-box {
@@ -4231,6 +4245,10 @@ select {
     margin-top: 0.15rem;
   }
 
+  .hero-visual-card--poster {
+    min-height: 540px;
+  }
+
   .hero-visual-badge {
     font-size: 0.62rem;
     min-height: 2.1rem;
@@ -4278,6 +4296,10 @@ select {
 
   .hero-visual-card {
     min-height: 200px;
+  }
+
+  .hero-visual-card--poster {
+    min-height: 500px;
   }
 
   .hero-visual-badge {
