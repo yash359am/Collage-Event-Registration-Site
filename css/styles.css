@@ -354,14 +354,6 @@ img {
   align-items: center;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    min-height: 80px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-  }
-}
-
 .navbar .container {
   display: flex;
   align-items: center;
@@ -521,43 +513,14 @@ img {
 @media (max-width: 768px) {
   .navbar .container { padding: 0 16px; justify-content: space-between; }
   
-  .college-line1 { font-size: 11px; text-align: left; }
-  .college-line2 { font-size: 13px; text-align: left; }
+  .college-line1 { font-size: 11px; }
+  .college-line2 { font-size: 13px; }
   .college-address { display: none; } /* Hide on mobile */
+  .nav-logo { width: 46px; height: 46px; }
+  .navbar-right { gap: 10px; }
+  .nav-btn-register { display: none; }
   
-  .navbar-left {
-    position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 0 50px; /* Space for both sides */
-  }
-
-  .nav-logo { 
-    position: absolute;
-    right: 0;
-    width: 46px; 
-    height: 46px;
-    margin: 0;
-  }
-
-  .college-info {
-    text-align: center;
-    align-items: center;
-  }
-
-  .college-line1, .college-line2 { text-align: center; }
-
-  .navbar-right {
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .hamburger { display: flex; order: -1; }
+  .hamburger { display: flex; }
   
   .nav-links {
     position: fixed;
