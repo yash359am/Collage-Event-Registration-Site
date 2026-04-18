@@ -4373,3 +4373,120 @@ select {
     padding-top: 0.7rem;
   }
 }
+
+/* ========= Premium CPU Preloader ========= */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: #030816;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s;
+}
+
+.page-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+}
+
+.cpu-container {
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cpu-svg {
+  width: 100%;
+  height: auto;
+  max-height: 40vh;
+  filter: drop-shadow(0 0 20px rgba(125, 211, 252, 0.2));
+  will-change: transform;
+}
+
+.cpu-text {
+  font-family: inherit;
+  font-weight: 900;
+  filter: drop-shadow(0 0 5px rgba(125, 211, 252, 0.5));
+}
+
+.cpu-light {
+  offset-path: path("M 10 20 h 79.5 q 5 0 5 5 v 30"); /* Default path */
+  animation: cpuMoveLight 3s infinite linear;
+  will-change: transform, opacity;
+}
+
+.cpu-light-1 {
+  offset-path: path("M 10 20 h 55 q 5 0 5 5 v 25 h 10");
+  animation-duration: 3s;
+}
+
+.cpu-light-2 {
+  offset-path: path("M 180 10 h -45 q -5 0 -5 5 v 33 h -10");
+  animation-duration: 2.5s;
+  animation-delay: -1s;
+}
+
+@keyframes cpuMoveLight {
+  0% { transform: translateZ(0); offset-distance: 0%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateZ(0); offset-distance: 100%; opacity: 0; }
+}
+
+.loader-info {
+  text-align: center;
+  animation: loaderInfoFadeIn 1s ease-out 0.5s both;
+  padding: 0 1rem;
+}
+
+.loader-fest-name {
+  font-family: "Times New Roman", Times, serif;
+  font-size: clamp(1.5rem, 8vw, 2.5rem);
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, #7dd3fc, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.loader-fest-subtitle {
+  font-family: "Times New Roman", Times, serif;
+  color: #9ca3af;
+  font-size: clamp(0.7rem, 3vw, 1rem);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .loader-content {
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .cpu-container {
+    min-height: 150px;
+  }
+}
+
+@keyframes loaderInfoFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

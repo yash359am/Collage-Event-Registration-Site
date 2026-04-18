@@ -1,4 +1,4 @@
-﻿
+
 // Global Error Boundary
 window.addEventListener("error", function (e) {
     // Suppress console errors per performance specs
@@ -58,7 +58,7 @@ function initLenis() {
 // ========= Page Loader - Bulletproof Dismissal =========
 let loaderDismissed = false;
 const loaderStartedAt = performance.now();
-const LOADER_MIN_VISIBLE_MS = 4200;
+const LOADER_MIN_VISIBLE_MS = 3000;
 
 function requestLoaderDismiss() {
   const elapsed = performance.now() - loaderStartedAt;

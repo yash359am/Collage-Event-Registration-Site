@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,24 +22,56 @@
 
   <!-- Page Loader -->
   <div class="page-loader" id="pageLoader">
-    <div class="loader-shell" aria-label="Loading About Anweshane - 2K26">
-      <span class="loader-kicker">Bahubali College of Engineering</span>
-      <div class="loader-meta" aria-hidden="true">
-        <span>National Level Fest</span>
-        <span>Shravanabelagola</span>
-        <span>Edition 2K26</span>
+    <div class="loader-content">
+      <div class="cpu-container">
+        <!-- SVG from cpu-architecture.tsx -->
+        <svg class="cpu-svg" viewBox="0 0 200 100" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <radialGradient id="cpu-blue-grad">
+              <stop offset="0%" stop-color="#7dd3fc" />
+              <stop offset="100%" stop-color="transparent" />
+            </radialGradient>
+            <radialGradient id="cpu-purple-grad">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="transparent" />
+            </radialGradient>
+            <linearGradient id="cpu-text-gradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#7dd3fc">
+                <animate attributeName="offset" values="-2; -1; 0" dur="3s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="50%" stop-color="#8b5cf6">
+                <animate attributeName="offset" values="-1; 0; 1" dur="3s" repeatCount="indefinite" />
+              </stop>
+              <stop offset="100%" stop-color="#7dd3fc">
+                <animate attributeName="offset" values="0; 1; 2" dur="3s" repeatCount="indefinite" />
+              </stop>
+            </linearGradient>
+          </defs>
+          
+          <!-- Background Paths - Adjusted for larger chip (70x38 to 130x62) -->
+          <g stroke="rgba(125, 211, 252, 0.15)" fill="none" stroke-width="0.3">
+            <path d="M 10 20 h 55 q 5 0 5 5 v 25 h 10" />
+            <path d="M 180 10 h -45 q -5 0 -5 5 v 33 h -10" />
+            <path d="M 150 20 v 30 q 0 5 -5 5 h -15" />
+            <path d="M 170 80 v -25 q 0 -5 -5 -5 h -35" />
+          </g>
+
+          <!-- Moving Lights -->
+          <circle r="1" fill="url(#cpu-blue-grad)" class="cpu-light cpu-light-1" />
+          <circle r="1" fill="url(#cpu-purple-grad)" class="cpu-light cpu-light-2" />
+          
+          <!-- Main CPU Chip -->
+          <g class="cpu-chip">
+            <rect x="70" y="38" width="60" height="24" rx="3" fill="#030816" stroke="#7dd3fc" stroke-width="0.8" />
+            <text x="100" y="53.5" text-anchor="middle" font-size="7" font-weight="900" fill="url(#cpu-text-gradient)" class="cpu-text" style="letter-spacing: 0.3px;">
+              ANWESHANE
+            </text>
+          </g>
+        </svg>
       </div>
-      <span class="loader-mark" aria-hidden="true">A2K26</span>
-      <h1 class="loader-title">About Anweshane - 2K26</h1>
-      <p class="loader-subtitle">Engineering, culture, sports, and student talent in one fest experience.</p>
-      <div class="loader-pillars" aria-hidden="true">
-        <span>Tech</span>
-        <span>Culture</span>
-        <span>Sports</span>
-      </div>
-      <div class="loader-status" aria-hidden="true">
-        <span class="loader-status-line"></span>
-        <span class="loader-status-text">Preparing your campus fest experience</span>
+      <div class="loader-info">
+        <h2 class="loader-fest-name">ANWESHANE</h2>
+        <p class="loader-fest-subtitle">The Annual Tech Fest</p>
       </div>
     </div>
   </div>
