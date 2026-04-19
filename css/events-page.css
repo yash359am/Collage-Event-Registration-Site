@@ -1474,6 +1474,8 @@
 }
 
 .footer--events {
+  position: relative;
+  z-index: 10;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background:
     linear-gradient(180deg, rgba(3, 8, 22, 0.98), #02050d),
