@@ -2191,10 +2191,14 @@ body.events-canvas-active .bg-canvas {
 }
 
 .footer--events {
+  position: relative;
+  z-index: 10;
   border-top-color: rgba(125, 211, 252, 0.12);
   background:
     linear-gradient(180deg, rgba(5, 8, 22, 0.96), rgba(2, 6, 23, 0.98)),
     #020617;
+  padding-bottom: clamp(6rem, 12vh, 8rem);
+  color: #ffffff;
 }
 
 .footer--events .footer-social a,
