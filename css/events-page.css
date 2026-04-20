@@ -946,6 +946,10 @@
   background: var(--events-green);
 }
 
+.card-category.fun-week {
+  background: var(--events-purple, #db2777);
+}
+
 .event-badges {
   display: flex;
   flex-wrap: wrap;
@@ -2076,6 +2080,11 @@ body.events-canvas-active .bg-canvas {
 
 .card-category.sports {
   background: linear-gradient(135deg, #86efac, #22c55e);
+}
+
+.card-category.fun-week {
+  background: linear-gradient(135deg, #f472b6, #db2777);
+  color: #eff6ff;
 }
 
 .filter-btn.active,

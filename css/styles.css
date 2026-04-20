@@ -1319,6 +1319,12 @@ img {
   border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
+.event-card .card-category.fun-week {
+  background: rgba(255, 105, 180, 0.15);
+  color: #ff69b4;
+  border: 1px solid rgba(255, 105, 180, 0.3);
+}
+
 .event-card .card-category.workshop {
   background: rgba(255, 215, 0, 0.15);
   color: var(--gold);
